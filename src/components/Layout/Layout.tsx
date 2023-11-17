@@ -48,19 +48,21 @@ const Layout = ({
         >
           <SideBar />
         </Box>
-        <Box
-          sx={{
-            width: "100%",
-            maxWidth: "1600px",
-            color: "#000",
-            height: "100%",
-            minHeight: "95vh",
-            padding: { sm: "36px 33px 30px", xs: "30px 16px 20px" },
-            marginLeft: { md: "220px", sm: 0, xs: 0 },
-          }}
-          onClick={() => setHandleSideBar(false)}
-        >
-          {children}
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              width: "100%",
+              maxWidth: "1600px",
+              color: "#000",
+              height: "100%",
+              minHeight: "95vh",
+              padding: { sm: "36px 33px 30px", xs: "30px 16px 20px" },
+              marginLeft: { md: "220px", sm: 0, xs: 0 },
+            }}
+            onClick={() => setHandleSideBar(false)}
+          >
+            {children}
+          </Box>
         </Box>
       </Box>
     </Box>
