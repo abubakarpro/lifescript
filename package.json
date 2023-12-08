@@ -43,6 +43,7 @@
     "react-d3-library": "^1.1.8",
     "react-dom": "^18",
     "react-draft-wysiwyg": "^1.15.0",
+    "react-dropzone": "^14.2.3",
     "react-i18next": "^13.3.1",
     "react-loader-spinner": "^5.4.5",
     "react-markdown": "^9.0.1",

@@ -8,6 +8,13 @@
   height: 155px;
 }
 
+.SelBookCoverHeaderMain{
+  background-image: url(../../_assets/svg/smallBgTree.svg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+}
+
 
 /* Overview Welcome  */
 .welcomeMain {
@@ -54,10 +61,21 @@
   background-position: left;
 }
 
+.SelBookCoverHeaderBook{
+  height: 145px;
+  width: 202px
+}
+
 @media (min-width:1400px) and (max-width:1800px) {
   .welcomeImage {
     width: 260px;
-    height: 200px;
+    height: 200px;  
+  }
+}
+
+@media (min-width:1200px) and (max-width:1400px) {
+  .SelBookCoverHeaderBook{
+    width: 180px
   }
 
   .profilePic {
@@ -103,5 +121,20 @@
 
   .bgRounded {
     width: 250px;
+  }
+}
+
+
+@media (max-width: 1100px) {
+  .SelBookCoverHeaderBook {
+    width: 180px;
+    height: 145px;
+  }
+}
+
+@media (max-width: 500px) {
+  .SelBookCoverHeaderBook {
+    width: 140px;
+    height: 120px;
   }
 }

@@ -261,6 +261,22 @@ const RichText = ({ questionId }) => {
   }, [seconds]);
 
   //save answer and chapter
+  //autosave answer
+  useEffect(() => {
+    if (!openai) {
+      const interval = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds + 1);
+      }, 30000);
+      if (questionData && questionData?.chapter?._id) {
+        saveUserAnswer();
+      }
+
+      // Cleanup the interval on component unmount
+      return () => clearInterval(interval);
+    }
+  }, [seconds]);
+
+  //save answer and chapter
   const saveUserAnswer = () => {
     if (!openai) {
       dispatch(
@@ -341,6 +357,7 @@ const RichText = ({ questionId }) => {
           <Image alt="icon" src={PIcon} />
           <div className={styles.overflowQuestionText}>
             {questionData?.text ? questionData?.text : compileChapter}
+            {questionData?.text ? questionData?.text : compileChapter}
           </div>
         </Box>
         <Box
@@ -351,7 +368,12 @@ const RichText = ({ questionId }) => {
           }}
         >
           <Box
-            sx={{ display: "flex", alignItems: "center", columnGap: "10px" }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              flexWrap: "wrap",
+            }}
           >
             <Button
               // image={speechIcon}
@@ -392,6 +414,7 @@ const RichText = ({ questionId }) => {
                   "&:hover": {
                     backgroundColor: "#fff",
                   },
+                  width: "150px",
                 }}
               >
                 Mark As Complete
@@ -506,6 +529,7 @@ const RichText = ({ questionId }) => {
             image: {
               // urlEnabled: true,
               uploadEnabled: true,
+              alignmentEnabled: false,
               alignmentEnabled: false,
               previewImage: true,
               inputAccept: "image/gif,image/jpeg,image/jpg,image/png,image/svg",

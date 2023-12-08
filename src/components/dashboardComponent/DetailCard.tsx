@@ -135,6 +135,11 @@ export default function DetailCard({
               `/dashboard/templates/templateView?templateId=${chapter?._id}`
             );
           }
+          if(router.asPath === "/dashboard/chapters/completedChapter") {
+            router.push(
+              `/dashboard/narrative?chapterId=${chapter?._id}&openai=${chapter?.narrativeFusion}`
+            );
+          }
         }}
       >
         <CardContent sx={{ height: "100%" }}>

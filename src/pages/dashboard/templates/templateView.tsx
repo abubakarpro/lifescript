@@ -7,6 +7,7 @@ import Questions from "@/components/dashboardComponent/Questions";
 import CustomizationDialog from "@/components/modal/CustomizationDialog";
 // import AddQuestion from "@/pages/events/addQuestion";
 import ModalImage from "@/_assets/png/view-template-modal.png";
+import UseTemplate from "@/_assets/svg/useTemplate.svg";
 import Button from "@/components/button/Button";
 import TransitionsDialog from "@/components/modal/TransitionDialog";
 import {
@@ -22,7 +23,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import addIcon from "../../../../public/addicon.svg";
 const chapterName = () => {
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -30,7 +30,7 @@ const chapterName = () => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [tempQuestionIds, setTempQuestionIds] = useState([]);
   console.log("4446666", tempQuestionIds);
-  const [buttonLoading, setButtonLoading] = useState(false);
+  const [buttonLoading, setButtonLoading] = useState(true);
   const router = useRouter();
   const dispatch: any = useDispatch();
   const { templateId } = router.query;
@@ -48,13 +48,22 @@ const chapterName = () => {
         } else {
           dispatch(
             cloneTemplate({ id: templateId.toString(), ids: tempQuestionIds })
+          ).unwrap();
+          dispatch(
+            cloneTemplate({ id: templateId.toString(), ids: tempQuestionIds })
           )
             .unwrap()
             .then(() => {
               setOpenModal(true);
+              setButtonLoading(true);
             })
-            .catch(() => setButtonLoading(false));
+            .catch(() => {
+              setButtonLoading(true);
+            });
         }
+      })
+      .catch(() => {
+        setButtonLoading(true);
       });
   };
 
@@ -70,7 +79,22 @@ const chapterName = () => {
     }
   };
 
+  const toggleIdInArray = (id) => {
+    const index = tempQuestionIds.indexOf(id);
+
+    if (index !== -1) {
+      const updatedIds = [...tempQuestionIds];
+      updatedIds.splice(index, 1);
+      setTempQuestionIds(updatedIds);
+    } else {
+      setTempQuestionIds([...tempQuestionIds, id]);
+    }
+  };
+
   const handleCopyAgain = () => {
+    dispatch(
+      cloneTemplate({ id: templateId.toString(), ids: tempQuestionIds })
+    );
     dispatch(cloneTemplate({ id: templateId.toString(), ids: tempQuestionIds }))
       .then(() => {
         setOpenModal(true);
@@ -87,6 +111,8 @@ const chapterName = () => {
     setAllQuestions(templateData?.questions);
     const ids = templateData?.questions?.map((obj) => obj._id);
     setTempQuestionIds(ids);
+    const ids = templateData?.questions?.map((obj) => obj._id);
+    setTempQuestionIds(ids);
     setTemplateTitle(templateData?.title);
   }, [allTemplates]);
 
@@ -95,6 +121,8 @@ const chapterName = () => {
       .unwrap()
       .then(() => setLoading(false));
   }, []);
+
+  console.log("tempQuestionIds", tempQuestionIds?.length);
 
   console.log("tempQuestionIds", tempQuestionIds?.length);
 
@@ -111,11 +139,11 @@ const chapterName = () => {
             display: "flex",
             justifyContent: "flex-end",
             margin: "10px auto",
-            opacity: tempQuestionIds?.length ? "1" : "0.6",
+            opacity: tempQuestionIds?.length && buttonLoading ? "1" : "0.6",
           }}
         >
           <Button
-            image={addIcon}
+            image={UseTemplate}
             title="Use Template"
             background="#197065"
             borderRadius="55px"
@@ -125,7 +153,7 @@ const chapterName = () => {
             width="220px"
             padding="5px 0px"
             onClick={() => {
-              tempQuestionIds?.length && handleChapterClone();
+              tempQuestionIds?.length && buttonLoading && handleChapterClone();
             }}
             height={undefined}
           />
@@ -168,6 +196,7 @@ const chapterName = () => {
                     question={question}
                     number={index + 1}
                     title="templateView"
+                    templateQuestion={(id) => toggleIdInArray(id)}
                     templateQuestion={(id) => toggleIdInArray(id)}
                   />
                 ))
@@ -239,7 +268,14 @@ const chapterName = () => {
         open={templateState}
         heading="Copy Template"
         description="This template is already copied, want to copy template again?"
-        cancel={() => setTemplateState(false)}
+        cancel={() => {
+          setTemplateState(false);
+          setButtonLoading(true);
+        }}
+        closeModal={() => {
+          setTemplateState(false);
+          setButtonLoading(true);
+        }}
         proceed={handleCopyAgain}
       />
     </>

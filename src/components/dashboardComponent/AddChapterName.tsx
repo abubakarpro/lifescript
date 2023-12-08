@@ -46,13 +46,14 @@ const AddChapterName = ({
         alignItems: "center",
         justifyContent: "space-between",
         height: "165px",
-        overflow: "hidden"
+        overflow: "hidden",
+        width: "100%"
       }}
       className={styles.welcomeMain}
     >
       <Box
         sx={{
-          padding: { sm: "27px 40px", xs: "10px 15px" },
+          padding: { sm: "27px 20px", xs: "10px 15px" },
           position: "relative",
           zIndex: "1"
         }}
@@ -111,7 +112,7 @@ const AddChapterName = ({
                   borderRadius: { sm: "50px", md: "20px" },
                   backgroundColor: "white",
                 },
-                width: { sm: "300px", md: "390px" },
+                width: { sm: "300px", lg: "390px" },
               }}
             />
           </Box>
@@ -125,7 +126,9 @@ const AddChapterName = ({
             sm: "400px",
           },
           width: {
-            sm: "360px",
+            xs: "230px",
+            sm: "260px",
+            lg: "360px",
           },
           display: "flex",
           justifyContent: "center",

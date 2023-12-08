@@ -24,7 +24,7 @@ import { toast } from "react-toastify";
 import bgTree from "../../../_assets/svg/bgTree.svg";
 import AddChapter from "./addChapter";
 
-const Dashboard = () => {
+const CompletedChapters = () => {
   const [chapterModal, setChapterModal] = useState(false);
   const [updateChapterModal, setUpdateChapterModal] = useState(false);
   const [allChapters, setAllChapters] = useState([]);
@@ -101,7 +101,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (chapters) {
-      const inProgressChapters = chapters.filter((chapter) => chapter.status !== true);
+      const inProgressChapters = chapters.filter((chapter) => chapter.status === true);
       setAllChapters(inProgressChapters);
     }
   }, [chapters]);
@@ -135,8 +135,9 @@ const Dashboard = () => {
                 marginTop: "48px",
               }}
             >
-              <StartNewChapter addChapterClick={() => setChapterModal(true)} />
+              {/* <StartNewChapter addChapterClick={() => setChapterModal(true)} /> */}
               {allChapters.map((chapter, index) => (
+
                 <DetailCard
                   key={index}
                   chapter={chapter}
@@ -147,16 +148,7 @@ const Dashboard = () => {
                 />
               ))}
             </Box>
-          ) : allChapters.length < 1 ? (
-            <Box
-              className={styles.CardsContainer}
-              sx={{
-                marginTop: "48px",
-              }}
-            >
-              <StartNewChapter addChapterClick={() => setChapterModal(true)} />
-            </Box>
-          ) : (
+          ): (
             <Box
               sx={{
                 marginTop: { sm: "48px", xs: "25px" },
@@ -217,4 +209,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default CompletedChapters;
