@@ -479,11 +479,6 @@ const NarrativeResponse = () => {
           setResponseType(false);
         }}
         proceed={() => setRevertModal(false)}
-        cancel={() => {
-          setRevertModal(false);
-          setResponseType(false);
-        }}
-        proceed={() => setRevertModal(false)}
         proceedText="Not Yet" // Customize the text for the "Yes" button
         cancelText="Revert Changes" // Customize the text for the "No" button
       />
@@ -493,10 +488,8 @@ const NarrativeResponse = () => {
         open={saveResponseModal}
         heading="Save Response"
         description="Once saved, you will find the chapter in completed chapters tab."
-        cancel={handleSaveResponse}
         proceed={() => setSaveResponseModal(false)}
         cancel={handleSaveResponse}
-        proceed={() => setSaveResponseModal(false)}
         proceedText="Not Yet" // Customize the text for the "Yes" button
         cancelText="Keep Changes" // Customize the text for the "No" button
       />

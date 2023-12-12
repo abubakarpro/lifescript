@@ -1,6 +1,6 @@
 "use client";
 import PIcon from "@/_assets/svg/edit-text-title-icon.svg";
-import { compiledChapter, uploadImage } from "@/store/slices/chatSlice";
+import { compiledChapter, uploadImage } from "@/store/slices/chatSlice"; //uploadImage
 import { Box, ButtonBase } from "@mui/material";
 import {
   ContentState,
@@ -11,7 +11,7 @@ import {
   //convertFromHTML,
   convertToRaw,
 } from "draft-js";
-import htmlToDraft from "html-to-draftjs";
+// import htmlToDraft from "html-to-draftjs";
 
 import styles from "./styles.module.css";
 // import speechIcon from "@/_assets/svg/speeect-text-icon.svg";
@@ -23,6 +23,7 @@ import {
   updateChapterResponse,
   updateQuestion,
 } from "@/store/slices/chatSlice";
+import axios from "axios";
 import "core-js/stable";
 import "draft-js/dist/Draft.css";
 import draftToHtml from "draftjs-to-html";
@@ -44,6 +45,8 @@ const Editor = dynamic(
 
 const RichText = ({ questionId }) => {
   const router = useRouter();
+  let htmlToDraftJs;
+
   const mediaRecorderRef = useRef(null);
   const dispatch: any = useDispatch();
   const [editorState, setEditorState] = useState(() =>
@@ -133,7 +136,11 @@ const RichText = ({ questionId }) => {
   };
 
   useEffect(() => {
-    compileChapterId &&
+    if (compileChapterId) {
+      let htmlToDraft = null;
+      if (typeof window === "object") {
+        htmlToDraft = require("html-to-draftjs").default;
+      }
       dispatch(compiledChapter({ id: compileChapterId }))
         .unwrap()
         .then((res) => {
@@ -151,6 +158,7 @@ const RichText = ({ questionId }) => {
           );
           setEditorState(EditorState.createWithContent(contentState));
         });
+    }
   }, [compileChapterId]);
 
   //destroys recorder instance
@@ -245,22 +253,13 @@ const RichText = ({ questionId }) => {
     }
   }, []); //to import webspellcheckr
 
-  //autosave answer
-  useEffect(() => {
-    if (!openai) {
-      const interval = setInterval(() => {
-        setSeconds((prevSeconds) => prevSeconds + 1);
-      }, 30000);
-      if (questionData && questionData?.chapter?._id) {
-        saveUserAnswer();
-      }
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     // Import html-to-draftjs only in a browser environment
+  //     htmlToDraftJs = require("html-to-draftjs");
+  //   }
+  // }, []);
 
-      // Cleanup the interval on component unmount
-      return () => clearInterval(interval);
-    }
-  }, [seconds]);
-
-  //save answer and chapter
   //autosave answer
   useEffect(() => {
     if (!openai) {
@@ -299,7 +298,9 @@ const RichText = ({ questionId }) => {
           userText: openai === "false" ? newData : userChapter,
           openaiChapterText: openai === "true" ? newData : gptChapter,
         })
-      );
+      )
+        .unwrap()
+        .then(() => router.push("/dashboard/chapters/completedChapter"));
     }
   };
 
@@ -331,6 +332,36 @@ const RichText = ({ questionId }) => {
         const form_data = new FormData();
         form_data.append("image", file);
         const res = await dispatch(uploadImage(form_data));
+        const form_data2 = new FormData();
+        form_data2.append("api_token", "71b1bfcdf31b746dd8444631a9f563e5");
+        form_data2.append("file", file);
+        const simple = await axios.post(
+          "https://api-service.vanceai.com/web_api/v1/upload",
+          form_data2
+        );
+        const jconfig = {
+          job: "enlarge",
+          config: {
+            module: "enlarge",
+            module_params: {
+              model_name: "EnlargeStable",
+              suppress_noise: 26,
+              remove_blur: 26,
+              scale: "2x",
+            },
+            out_params: {},
+          },
+        };
+        const form_data3 = new FormData();
+        form_data3.append("uid", simple?.data?.data?.uid);
+        form_data3.append("api_token", "71b1bfcdf31b746dd8444631a9f563e5");
+        form_data3.append("jconfig", JSON.stringify(jconfig));
+
+        const transform = await axios.post(
+          "https://api-service.vanceai.com/web_api/v1/transform",
+          form_data3
+        );
+        console.log("4444444", form_data3, "5555", simple, "666666", transform);
 
         resolve({ data: { link: res.payload } });
       };
@@ -357,7 +388,6 @@ const RichText = ({ questionId }) => {
           <Image alt="icon" src={PIcon} />
           <div className={styles.overflowQuestionText}>
             {questionData?.text ? questionData?.text : compileChapter}
-            {questionData?.text ? questionData?.text : compileChapter}
           </div>
         </Box>
         <Box
@@ -372,7 +402,7 @@ const RichText = ({ questionId }) => {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-              flexWrap: "wrap",
+              flexWrap: { xs: "wrap", lg: "nowrap" },
             }}
           >
             <Button
@@ -529,7 +559,6 @@ const RichText = ({ questionId }) => {
             image: {
               // urlEnabled: true,
               uploadEnabled: true,
-              alignmentEnabled: false,
               alignmentEnabled: false,
               previewImage: true,
               inputAccept: "image/gif,image/jpeg,image/jpg,image/png,image/svg",
