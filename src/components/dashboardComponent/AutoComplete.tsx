@@ -3,26 +3,23 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-
-export default function CountrySelect({ countryName }) {
+export default function CountrySelect() {
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   const handleCountryChange = (event, newValue) => {
     if (newValue) {
-      setSelectedCountry(newValue.label);
-      countryName(newValue);
+      setSelectedCountry(newValue.phone);
     }
   };
 
+  console.log("selectedCountry", selectedCountry);
+  
+
   return (
-    <Box mb="30px">
-      <Typography
-        sx={{
-          fontSize: { xs: 12, sm: 14, md: 16, lg: 16 },
-        }}
-      >
-        Choose a country
-      </Typography>
+    <Box sx={{
+      width: "180px",
+      mb: "5px"
+    }}>
       <Autocomplete
         id="country-select-demo"
         options={countries}
@@ -42,21 +39,19 @@ export default function CountrySelect({ countryName }) {
               src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
               alt=""
             />
-            {option.label} ({option.code})
+({option.phone})
           </Box>
         )}
         renderInput={(params) => (
+          
           <TextField
             {...params}
             variant="outlined"
-            placeholder={"Choose a country"}
             name="title"
             sx={{
               marginTop: "10px",
               "& .MuiOutlinedInput-root": {
-                borderRadius: "50px",
-                backgroundColor: "white",
-                border: "1px solid #186F65",
+                backgroundColor: "#F6F9FB",
                 height: "46px",
                 pt: "1.8px",
               },
@@ -68,8 +63,6 @@ export default function CountrySelect({ countryName }) {
           />
         )}
       />
-      {/* Use selectedCountry in your application as needed */}
-      {selectedCountry && <p>Selected Country: {selectedCountry.label}</p>}
     </Box>
   );
 }

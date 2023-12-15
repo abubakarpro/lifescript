@@ -30,6 +30,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
         sx={{
           fontSize: { xs: 12, sm: 14, md: 16, lg: 16 },
           color: color,
+          ml: "5px"
         }}
       >
         {label}
@@ -46,6 +47,10 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
             backgroundColor: bgColor,
             border: border,
             height: height,
+          pl: "15px",
+          },
+          ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+            border: "0px",
           },
           width: '100%',
           '&:hover': {
