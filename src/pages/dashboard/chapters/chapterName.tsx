@@ -60,8 +60,9 @@ const chapterName = () => {
         const accessRole = decodedToken.accessRole;
 
         console.log("accessTokenRole:", accessRole);
-        if (accessRole === "PremiumPlan" || accessRole === "BasicPlan") {
+        if (accessRole === "PremiumPlan" || accessRole === "GoldPlan") {
           gptSocketCall();
+          setOpenCustomizationDialog(false);
         } else {
           setBuyPremium(true);
         }

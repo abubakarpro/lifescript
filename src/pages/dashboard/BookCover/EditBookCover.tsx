@@ -16,7 +16,6 @@ const EditBookCover = () => {
   const router = useRouter();
   const dispatch: any = useDispatch();
   const { CoverNumber } = router.query;
-  console.log('yyyyy',CoverNumber);
   const [title, setTitle] = useState("");
   const coverData = useSelector(selectCoverData);
   const [buttonLoading, setButtonLoading] = useState(false);

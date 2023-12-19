@@ -144,7 +144,8 @@ const RichText = ({ questionId }) => {
     const token = localStorage.getItem("token");
     const decodedToken = jwt.decode(token);
     const accessRole = decodedToken.accessRole;
-    if (accessRole === "PremiumPlan" || accessRole === "BasicPlan") {
+    console.log("44444",accessRole);
+    if (accessRole === "PremiumPlan" || accessRole === "GoldPlan") {
       setDetecting(true);
       handleToggleRecording();
     } else {
