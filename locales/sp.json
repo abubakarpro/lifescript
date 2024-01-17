@@ -166,7 +166,7 @@
   "ChModals": {
     "addNewCh": "Agregar nuevo capítulo",
     "addNewChBtn": "Agregar nuevo capítulo",
-    "updateChName": "Actualizar Nombre del Capítulo",
+    "updateChName": "Actualizar",
     "Del": "Eliminar",
     "DelDescri": "¿Estás seguro de que quieres eliminar este capítulo?"
   },
@@ -203,6 +203,7 @@
     "temp": "Plantilla",
     "Questions": "Preguntas",
     "useTemBtn": "Usar Plantilla",
+    "ch": "Capítulo",
     "temModal": {
       "thankYou": "¡Gracias!",
       "TYDescription": "La plantilla ha sido añadida a tus capítulos.",

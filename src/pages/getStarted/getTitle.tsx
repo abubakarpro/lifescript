@@ -1,11 +1,11 @@
 import GreenBlock from "@/_assets/png/getTitle-green-block.png";
 import WhiteBlock from "@/_assets/png/getTitle-white-block.png";
 import GlobelBtn from "@/components/button/Button";
-import { bookTitle } from "@/store/slices/chatSlice";
+import { bookTitle, getBookTitle } from "@/store/slices/chatSlice";
 import { Box, CircularProgress, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -42,31 +42,31 @@ const getTitle = () => {
     console.log("text", text);
   };
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   dispatch(getBookTitle())
-  //     .unwrap()
-  //     .then((res) => {
-  //       console.log("111", res);
-  //       if (res?.length > 0) {
-  //         setTimeout(() => {
-  //           router.push("/dashboard/chapters");
-  //           setLoading(false);
-  //         }, 3000);
-  //       } else {
-  //         setTimeout(() => {
-  //           setLoading(false);
-  //         }, 1000);
-  //       }
-  //     })
-  //     .catch(() =>
-  //       setTimeout(() => {
-  //         console.log("fail");
-  //         router.push(`/dashboard/Questionnaire?userName=${userName}`);
-  //         setLoading(false);
-  //       }, 3000)
-  //     );
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    dispatch(getBookTitle())
+      .unwrap()
+      .then((res) => {
+        console.log("111", res);
+        if (res?.length > 0) {
+          setTimeout(() => {
+            router.push("/dashboard/chapters");
+            setLoading(false);
+          }, 3000);
+        } else {
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+        }
+      })
+      .catch(() =>
+        setTimeout(() => {
+          console.log("fail");
+          router.push(`/dashboard/Questionnaire?userName=${userName}`);
+          setLoading(false);
+        }, 3000)
+      );
+  }, []);
 
   return (
     <Box>
@@ -93,7 +93,8 @@ const getTitle = () => {
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
             width: "100%",
-            height: { sm: "100vh", xs: "100%" },
+            height: { sm: "100vh", xs: "100vh" },
+            minHeight: "100%",
             margin: 0,
             padding: 0,
             gap: 0,

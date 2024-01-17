@@ -180,7 +180,7 @@
   "ChModals": {
     "addNewCh": "Add new chapter",
     "addNewChBtn": "Add new chapter",
-    "updateChName": "Update Chapter Name",
+    "updateChName": "Update",
     "Del": "Delete",
     "DelDescri": "Are you sure you want to delete this chapter?"
   },
@@ -222,6 +222,7 @@
     "temp": "Template",
     "Questions": "Questions",
     "useTemBtn": "Use Template",
+    "ch": "Chapter",
     "temModal": {
       "thankYou": "Thank You!",
       "TYDescription": "Template has been added to your chapters.",

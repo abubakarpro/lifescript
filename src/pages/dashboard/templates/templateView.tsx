@@ -17,13 +17,13 @@ import {
   isTemplateCloned,
   selectTemplates,
 } from "@/store/slices/chatSlice";
-import { Box, Typography } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "./components/loading";
 const chapterName = () => {
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -37,6 +37,7 @@ const chapterName = () => {
   const { templateId } = router.query;
   const allTemplates = useSelector(selectTemplates);
   const [templateState, setTemplateState] = useState(false);
+  const [isLoaded, setIsloaded] = useState(true);
   const { t } = useTranslation();
   let templateData;
 
@@ -49,7 +50,8 @@ const chapterName = () => {
       .then((res) => {
         if (res == "Template is already cloned") {
           setTemplateState(true);
-          setCopyTemLoading(true);
+          setIsloaded(true);
+          setCopyTemLoading(false);
         } else {
           dispatch(
             cloneTemplate({ id: templateId.toString(), ids: tempQuestionIds })
@@ -59,16 +61,19 @@ const chapterName = () => {
               setCopyTemLoading(false);
               setOpenModal(true);
               setButtonLoading(true);
+              setIsloaded(false);
             })
             .catch(() => {
               setButtonLoading(true);
               setCopyTemLoading(false);
               setCopyTemLoading(false);
+              setIsloaded(false);
             });
         }
       })
       .catch(() => {
         setCopyTemLoading(false);
+        setIsloaded(false);
         setButtonLoading(true);
       });
   };
@@ -92,11 +97,13 @@ const chapterName = () => {
         setCopyTemLoading(false);
         setOpenModal(true);
         setTemplateState(false);
+        setIsloaded(false);
       })
       .catch(() => {
         setCopyTemLoading(false);
         setButtonLoading(false);
         setTemplateState(false);
+        setIsloaded(false);
       });
   };
 
@@ -114,6 +121,7 @@ const chapterName = () => {
       .then(() => {
         setLoading(false);
         setCopyTemLoading(false);
+        setIsloaded(false);
       });
   }, []);
 
@@ -143,6 +151,8 @@ const chapterName = () => {
           >
             <CircularProgress />
           </Box>
+        ) : isLoaded ? (
+          <Loading isLoaded={isLoaded} progressCheck={openModal} />
         ) : (
           <Box
             sx={{
@@ -203,6 +213,7 @@ const chapterName = () => {
                 <CircularProgress />
               </Box>
             ) : (
+              // <Loading isLoaded={isLoaded} />
               <>
                 {allQuestions?.length > 0 ? (
                   allQuestions.map((question, index) => (

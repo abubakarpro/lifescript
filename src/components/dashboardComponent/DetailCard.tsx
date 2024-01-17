@@ -14,10 +14,9 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import noData from "../../../public/noData.svg";
 import styles from "./HomeSteps.module.css";
-
-const options = ["Delete", "Edit"];
 
 const ITEM_HEIGHT = 48;
 
@@ -30,13 +29,16 @@ interface DetailCardProps {
   }) => void; // Define the callback type here
   isChapter?: boolean;
   percentageCheck?: boolean;
+  starterCh?: boolean;
 }
 export default function DetailCard({
   chapter,
   isChapter,
   deleteFunc,
   percentageCheck = true,
+  starterCh,
 }: DetailCardProps) {
+  const { t } = useTranslation();
   const router = useRouter();
   const questions = chapter?.questions;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -44,6 +46,7 @@ export default function DetailCard({
   const percentage = calculateCompletionPercentage(chapter?.questions);
   const handleClickOption = (opt) => {
     deleteFunc({ option: opt, chapterData: chapter, percentValue: percentage });
+    console.log("opt", opt);
     setAnchorEl(null);
   };
   const handleClick = (event: any) => {
@@ -53,6 +56,7 @@ export default function DetailCard({
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   function calculateCompletionPercentage(array) {
     if (array?.length === 0) {
       return 0;
@@ -84,6 +88,9 @@ export default function DetailCard({
       } ago`;
     }
   }
+  // const options = [`${t("ChName.Del")}`, `${t("ChName.edit")}`];
+
+  const options = ["Delete", "Edit"];
 
   return (
     <Box
@@ -165,6 +172,7 @@ export default function DetailCard({
                         <MenuItem
                           key={option}
                           selected={option === "Pyxis"}
+                          disabled={starterCh && starterCh}
                           onClick={() => handleClickOption(option)}
                         >
                           {option}

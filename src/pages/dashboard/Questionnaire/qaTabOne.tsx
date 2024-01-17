@@ -22,7 +22,7 @@ export default function TabOne({ onClick, data, setQaTab }) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        height: "90%",
       }}
     >
       <Box>
@@ -31,6 +31,7 @@ export default function TabOne({ onClick, data, setQaTab }) {
             color: "black",
             gap: "8px",
             mt: "20px",
+            display: { sm: "block", xs: "none" },
           }}
         >
           <Typography

@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import i18n from "i18next";
 import { useEffect, useState } from "react";
 import backArrow from "../../../_assets/svg/left.svg";
 import NextArrow from "../../../_assets/svg/rightArrow.svg";
@@ -20,9 +21,9 @@ export default function TabTwo({
   userName,
   setQaTab,
 }) {
-  const [maritalStatus, setMaritalStatus] = useState("Marital Status");
-  const [gender, setGender] = useState("Gender");
-  const [langPre, setLangPre] = useState("Language Preference");
+  const [maritalStatus, setMaritalStatus] = useState("");
+  const [gender, setGender] = useState("");
+  const [langPre, setLangPre] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showTooltip, setShowTooltip] = useState(false);
   const [name, setName] = useState(userName);
@@ -38,14 +39,18 @@ export default function TabTwo({
     }
   }, [data]);
 
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
+
   const handleButtonClick = () => {
     setShowTooltip(false);
     if (
       !name ||
-      maritalStatus === "Marital Status" ||
-      gender === "Gender" ||
+      maritalStatus === "" ||
+      gender === "" ||
       !selectedDate ||
-      langPre === "Language Preference"
+      langPre === ""
     ) {
       setShowTooltip(true);
     } else {
@@ -64,7 +69,7 @@ export default function TabTwo({
     <Box
       sx={{
         display: "flex",
-        height: "100%",
+        height: "90%",
         justifyContent: "space-between",
         flexDirection: "column",
       }}
@@ -73,9 +78,9 @@ export default function TabTwo({
         <Box
           sx={{
             color: "black",
-            display: "flex",
             alignItems: "center",
             gap: "8px",
+            display: { sm: "flex", xs: "none" },
           }}
         >
           <Typography
@@ -152,22 +157,37 @@ export default function TabTwo({
               >
                 Marital Status
               </Typography>
-              <Select
-                placeholder="Marital Status"
-                value={maritalStatus}
-                onChange={(e) => setMaritalStatus(e.target.value)}
+              <Box
                 sx={{
-                  width: "100%",
-                  borderRadius: "50px",
-                  backgroundColor: "white",
+                  position: "relative",
                 }}
               >
-                <MenuItem value="Marital Status" disabled>
-                  Marital Status
-                </MenuItem>
-                <MenuItem value="Single">Single</MenuItem>
-                <MenuItem value="Married">Married</MenuItem>
-              </Select>
+                <Select
+                  placeholder="Marital Status"
+                  value={maritalStatus}
+                  onChange={(e) => setMaritalStatus(e.target.value)}
+                  sx={{
+                    width: "100%",
+                    borderRadius: "50px",
+                    backgroundColor: "white",
+                  }}
+                >
+                  <MenuItem value="Single">Single</MenuItem>
+                  <MenuItem value="Married">Married</MenuItem>
+                </Select>
+                {maritalStatus === "" && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "18px",
+                      left: "20px",
+                      color: "gray",
+                    }}
+                  >
+                    Marital Status
+                  </Box>
+                )}
+              </Box>
             </Box>
           </Box>
           <Box
@@ -189,23 +209,38 @@ export default function TabTwo({
               >
                 Gender
               </Typography>
-              <Select
-                placeholder="Gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
+              <Box
                 sx={{
-                  width: "100%",
-                  borderRadius: "50px",
-                  backgroundColor: "white",
+                  position: "relative",
                 }}
               >
-                <MenuItem value="Gender" disabled>
-                  Gender
-                </MenuItem>
-                <MenuItem value="Male">Male</MenuItem>
-                <MenuItem value="Female">Female</MenuItem>
-                <MenuItem value="Other">Special</MenuItem>
-              </Select>
+                <Select
+                  placeholder="Gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                  sx={{
+                    width: "100%",
+                    borderRadius: "50px",
+                    backgroundColor: "white",
+                  }}
+                >
+                  <MenuItem value="Male">Male</MenuItem>
+                  <MenuItem value="Female">Female</MenuItem>
+                  <MenuItem value="Other">Special</MenuItem>
+                </Select>
+                {gender === "" && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "18px",
+                      left: "20px",
+                      color: "gray",
+                    }}
+                  >
+                    Gender
+                  </Box>
+                )}
+              </Box>
             </Box>
             <Box flex={1}>
               <Typography
@@ -253,22 +288,51 @@ export default function TabTwo({
               >
                 Language Preference
               </Typography>
-              <Select
-                placeholder="Language Preference"
-                value={langPre}
-                onChange={(e) => setLangPre(e.target.value)}
+              <Box
                 sx={{
-                  width: "100%",
-                  borderRadius: "50px",
-                  backgroundColor: "white",
+                  position: "relative",
                 }}
               >
-                <MenuItem value="Language Preference" disabled>
-                  Language Preference
-                </MenuItem>
-                <MenuItem value="English">English</MenuItem>
-                <MenuItem value="Spanish">Spanish</MenuItem>
-              </Select>
+                <Select
+                  placeholder="Language Preference"
+                  value={langPre}
+                  onChange={(e) => setLangPre(e.target.value)}
+                  sx={{
+                    width: "100%",
+                    borderRadius: "50px",
+                    backgroundColor: "white",
+                  }}
+                >
+                  <MenuItem
+                    value="English"
+                    onClick={() => {
+                      changeLanguage("en");
+                    }}
+                  >
+                    English
+                  </MenuItem>
+                  <MenuItem
+                    value="Spanish"
+                    onClick={() => {
+                      changeLanguage("sp");
+                    }}
+                  >
+                    Spanish
+                  </MenuItem>
+                </Select>
+                {langPre === "" && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "18px",
+                      left: "20px",
+                      color: "gray",
+                    }}
+                  >
+                    Language Preference
+                  </Box>
+                )}
+              </Box>
             </Box>
             <Box flex={1}></Box>
           </Box>

@@ -15,10 +15,12 @@ const AddChapterName = ({
   chapter,
   chapterId,
   title,
+  subTitle,
 }: {
   chapter: string;
   chapterId: any;
   title?: string;
+  subTitle?: string;
 }) => {
   const [chapterName, setChapterName] = useState("");
   const dispatch: any = useDispatch();
@@ -55,24 +57,40 @@ const AddChapterName = ({
     >
       <Box
         sx={{
-          padding: { sm: "27px 20px", xs: "10px 15px" },
+          padding: { sm: "27px 30px", xs: "10px 15px" },
           position: "relative",
           zIndex: "1",
         }}
       >
         {title === "templateView" && (
-          <Typography
-            sx={{
-              fontSize: {
-                xs: "25px",
-                sm: "28.707px",
-                md: "32px",
-                lg: "39.707px",
-              },
-            }}
-          >
-            {chapter}
-          </Typography>
+          <Box>
+            {subTitle && (
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: "16px",
+                    sm: "18.px",
+                    md: "20px",
+                    lg: "22.707px",
+                  },
+                }}
+              >
+                {subTitle}
+              </Typography>
+            )}
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: "25px",
+                  sm: "28.707px",
+                  md: "32px",
+                  lg: "39.707px",
+                },
+              }}
+            >
+              {chapter}
+            </Typography>
+          </Box>
         )}
         {title != "templateView" && (
           <Box>

@@ -1,10 +1,10 @@
-.loadImageMain{
+.loadImageMain {
   position: relative;
   margin: 70px 0;
 }
 
-.BgloadImage{
-  width: 370px;
+.BgloadImage {
+  width: 275px;
   animation: rotation 7s infinite linear;
 }
 
@@ -17,12 +17,11 @@
   }
 }
 
-
 .loadImage {
   position: absolute;
   top: 56px;
   left: 54px;
-  width: 260px;
+  width: 170px;
 }
 
 .nextIcon {
@@ -40,12 +39,12 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
-.titleIcon{
+.titleIcon {
   width: 53px;
   height: 53px;
 }
 
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
   .titleIcon {
     height: 60px;
     width: 60px;
@@ -64,12 +63,11 @@
   }
 }
 
-
 @media (max-width: 600px) {
-  .BgloadImage{
+  .BgloadImage {
     width: 280px;
   }
-  
+
   .loadImage {
     top: 56px;
     left: 43px;

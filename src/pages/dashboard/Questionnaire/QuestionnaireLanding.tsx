@@ -132,6 +132,7 @@ const Questionnaire = () => {
                 p: { md: "10px 20px", xs: "10px 0px" },
                 flex: 1,
                 overflowY: "auto",
+                mt: { sm: "0px", xs: "20px" },
               }}
             >
               {qaTab === 1 ? (

@@ -29,7 +29,7 @@ export default function TabThree({ onClickBack, onClickNext, data, setQaTab }) {
       <Box
         sx={{
           color: "black",
-          display: "flex",
+          display: { sm: "flex", xs: "none" },
           alignItems: "center",
           gap: "8px",
         }}
