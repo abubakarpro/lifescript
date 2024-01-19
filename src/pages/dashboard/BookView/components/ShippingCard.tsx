@@ -3,12 +3,17 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import HalfBook from "../../../../_assets/png/halfBook.png";
 
-const ShippingCard = ({ setCount, count, QuantityCheck = false, amount = 39 }) => {
+const ShippingCard = ({
+  setCount,
+  count,
+  QuantityCheck = false,
+  amount = 39,
+}) => {
   return (
     <Box
       sx={{
         width: { md: "393px", sm: "360px", xs: "100%" },
-        bgcolor: "#FFF9F0",
+        bgcolor: "#F3ECDA",
         borderRadius: "10px",
         p: "17px 21px",
         m: { md: "0px", xs: "auto" },

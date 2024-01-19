@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import React from "react";
 
 interface Props {
   title: string;
@@ -69,9 +68,7 @@ const TabItem = ({
         </Box>
       </Box>
 
-      <Box
-        
-      >
+      <Box>
         {free ? (
           <Box
             sx={{
@@ -83,10 +80,12 @@ const TabItem = ({
             {free}
           </Box>
         ) : (
-          <Box sx={{
-            display: "flex",
-            gap: "11px",
-          }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "11px",
+            }}
+          >
             <Box
               sx={{
                 fontSize: "12.832px",
@@ -111,23 +110,24 @@ const TabItem = ({
           </Box>
         )}
       </Box>
-      {!free && 
-      <Box
-        sx={{
-          position: "absolute",
-          right: "-5px",
-          top: "-27px",
-          border: "0.917px solid #197065",
-          bgcolor: "white",
-          borderRadius: "22.914px",
-          p: "6.416px 7.333px",
-          fontSize: "9.166px",
-          color: "#197065",
-          textTransform: "capitalize"
-        }}
-      >
-        {percentOff}% off
-      </Box>}
+      {!free && (
+        <Box
+          sx={{
+            position: "absolute",
+            right: "-5px",
+            top: "-27px",
+            border: "0.917px solid #30422E",
+            bgcolor: "white",
+            borderRadius: "22.914px",
+            p: "6.416px 7.333px",
+            fontSize: "9.166px",
+            color: "#30422E",
+            textTransform: "capitalize",
+          }}
+        >
+          {percentOff}% off
+        </Box>
+      )}
     </Box>
   );
 };

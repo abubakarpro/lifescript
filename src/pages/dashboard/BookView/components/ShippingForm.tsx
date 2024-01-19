@@ -1,12 +1,12 @@
 import InputWithLabel from "@/components/Input";
-import { getLuluBalance, getLuluShipping, selectLuluData } from "@/store/slices/authSlice";
+import CountrySelect from "@/components/dashboardComponent/AutoComplete";
+import { getLuluShipping, selectLuluData } from "@/store/slices/authSlice";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import CountrySelect from "@/components/dashboardComponent/AutoComplete";
 
 import { useDispatch, useSelector } from "react-redux";
 
-const ShippingForm = ({onChange, data, setShippingDataId}) => {
+const ShippingForm = ({ onChange, data, setShippingDataId }) => {
   const dispatch: any = useDispatch();
   const luluData = useSelector(selectLuluData);
   const [shippingData, setShippingData] = useState({
@@ -22,18 +22,18 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
 
   useEffect(() => {
     onChange(shippingData);
-  },[shippingData])
+  }, [shippingData]);
 
   useEffect(() => {
     data && setShippingData(shippingData);
-  },[data]);
+  }, [data]);
 
   useEffect(() => {
     dispatch(getLuluShipping());
-  },[]);
+  }, []);
 
   useEffect(() => {
-    if(luluData){
+    if (luluData) {
       setShippingData((prevData) => ({
         ...prevData,
         email: luluData?.email,
@@ -47,7 +47,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
       }));
       setShippingDataId(luluData?._id);
     }
-  },[luluData])
+  }, [luluData]);
 
   return (
     <Box
@@ -74,7 +74,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
         placeholder="Name"
         borderRadius="47.202px"
         bgColor="white"
-        border="1px solid #186F65"
+        border="1px solid #30422E"
       />
       <InputWithLabel
         color="#474E60"
@@ -89,7 +89,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
         placeholder="Email"
         borderRadius="47.202px"
         bgColor="white"
-        border="1px solid #186F65"
+        border="1px solid #30422E"
       />
       <Box
         sx={{
@@ -114,7 +114,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
             placeholder="City"
             borderRadius="47.202px"
             bgColor="white"
-            border="1px solid #186F65"
+            border="1px solid #30422E"
           />
         </Box>
 
@@ -131,7 +131,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
           <Box
             sx={{
               height: "56px",
-              border: "1px solid #186F65",
+              border: "1px solid #30422E",
               bgcolor: "white",
               borderRadius: "47.202px",
             }}
@@ -163,7 +163,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
         }
         borderRadius="47.202px"
         bgColor="white"
-        border="1px solid #186F65"
+        border="1px solid #30422E"
         type="number"
       />
 
@@ -191,7 +191,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
             placeholder="State Code"
             borderRadius="47.202px"
             bgColor="white"
-            border="1px solid #186F65"
+            border="1px solid #30422E"
             type="number"
           />
         </Box>
@@ -209,7 +209,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
             placeholder="Post Code"
             borderRadius="47.202px"
             bgColor="white"
-            border="1px solid #186F65"
+            border="1px solid #30422E"
             type="number"
           />
         </Box>
@@ -227,7 +227,7 @@ const ShippingForm = ({onChange, data, setShippingDataId}) => {
         placeholder="Street"
         borderRadius="47.202px"
         bgColor="white"
-        border="1px solid #186F65"
+        border="1px solid #30422E"
       />
     </Box>
   );

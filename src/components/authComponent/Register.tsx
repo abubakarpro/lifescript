@@ -185,9 +185,9 @@ export default function Register() {
                       borderRadius: "25px",
                       // backgroundColor: "wheat",
 
-                      color: "#186F65",
+                      color: "#30422E",
                       "&.Mui-selected": {
-                        backgroundColor: "#186F65",
+                        backgroundColor: "#30422E",
                         color: "white",
                       },
                     },

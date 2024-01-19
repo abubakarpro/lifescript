@@ -16,10 +16,10 @@
 </radialGradient>
 <radialGradient id="paint2_radial_1973_19535" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(233.446 192.538) rotate(90) scale(146.813)">
 <stop offset="0.708333" stop-color="#248D80"/>
-<stop offset="1" stop-color="#197065" stop-opacity="0"/>
+<stop offset="1" stop-color="#30422E" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint3_radial_1973_19535" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(189.493 187.864) rotate(90) scale(151.489)">
-<stop offset="0.90625" stop-color="#197065"/>
+<stop offset="0.90625" stop-color="#30422E"/>
 <stop offset="1" stop-color="#1F8C7F" stop-opacity="0"/>
 </radialGradient>
 </defs>

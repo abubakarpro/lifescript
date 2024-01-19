@@ -1,32 +1,17 @@
 import { LoginData } from "@/interface/authInterface";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import {
-  Box,
-  Checkbox,
-  Divider,
-  FormControlLabel,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useFormik } from "formik";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import * as Yup from "yup";
 import Forget from "../../../public/ForgetPasswod.svg";
-import SignupImage from "../../../public/Signup.svg";
-import fbLogo from "../../../public/fbIcon.svg";
-import googleLogo from "../../../public/googleIcon.svg";
 import Logo from "../../../public/logo.svg";
-import styles from "./Login.module.css";
 
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -62,32 +47,47 @@ const ResetPassword = () => {
   });
 
   return (
-    <Box sx={{
-      display: "grid",
-      alignItems: "center",
-      gridTemplateColumns: {
-        md: "repeat(2, minmax(0, 1fr))",
-        xs: "repeat(1, minmax(0, 1fr))"
-      },
-      gap: '1rem',
-      backgroundColor: "#FFF7EA",
-      minHeight: "100vh",
-      p: "20px",
-      boxSizing: 'border-box',
-      color: "#000"
-    }}>
-      <Box sx={{ margin: 0, display: { md: 'block', xs: 'none' } }}>
-        <Image src={Forget} alt="image of login" style={{ height: "100%", maxHeight: "92vh", width: "100%" }} />
+    <Box
+      sx={{
+        display: "grid",
+        alignItems: "center",
+        gridTemplateColumns: {
+          md: "repeat(2, minmax(0, 1fr))",
+          xs: "repeat(1, minmax(0, 1fr))",
+        },
+        gap: "1rem",
+        backgroundColor: "#FFF7EA",
+        minHeight: "100vh",
+        p: "20px",
+        boxSizing: "border-box",
+        color: "#000",
+      }}
+    >
+      <Box sx={{ margin: 0, display: { md: "block", xs: "none" } }}>
+        <Image
+          src={Forget}
+          alt="image of login"
+          style={{ height: "100%", maxHeight: "92vh", width: "100%" }}
+        />
       </Box>
 
-      <Box sx={{
-        maxWidth: "460px", margin: "0 auto", minWidth: "280px", width: "100%",
-        marginX: { sx: "0 35px" }
-      }}>
+      <Box
+        sx={{
+          maxWidth: "460px",
+          margin: "0 auto",
+          minWidth: "280px",
+          width: "100%",
+          marginX: { sx: "0 35px" },
+        }}
+      >
         <Box textAlign={"center"}>
           <Image src={Logo} width={223} height={135} alt="Logo Image" />
           <Typography
-            sx={{ color: "#000000", marginTop: "50px", fontSize: { sx: "15px", sm: "30px" } }}
+            sx={{
+              color: "#000000",
+              marginTop: "50px",
+              fontSize: { sx: "15px", sm: "30px" },
+            }}
           >
             Reset Password
           </Typography>
@@ -98,7 +98,7 @@ const ResetPassword = () => {
             <Typography
               sx={{
                 marginTop: "5rem",
-                fontSize: { sx: "15px", sm: "21px" }
+                fontSize: { sx: "15px", sm: "21px" },
               }}
             >
               Password
@@ -133,7 +133,7 @@ const ResetPassword = () => {
           <Typography
             sx={{
               marginTop: "40px",
-              fontSize: { sx: "15px", sm: "21px" }
+              fontSize: { sx: "15px", sm: "21px" },
             }}
           >
             Confirm Password
@@ -183,7 +183,7 @@ const ResetPassword = () => {
             type="submit"
             sx={{
               borderRadius: "48px",
-              backgroundColor: "#186F65",
+              backgroundColor: "#30422E",
               color: "white",
               maxWidth: "404px",
               width: "70%",
@@ -191,7 +191,7 @@ const ResetPassword = () => {
               pb: "16px",
 
               "&:hover": {
-                backgroundColor: "#186F65",
+                backgroundColor: "#30422E",
               },
               textTransform: "none",
             }}
@@ -206,8 +206,8 @@ const ResetPassword = () => {
               fontSize: "18px",
             }}
           >
-            After clicking Rest Password. You will be redirected to the
-            login page.
+            After clicking Rest Password. You will be redirected to the login
+            page.
           </Typography>
         </Box>
       </Box>

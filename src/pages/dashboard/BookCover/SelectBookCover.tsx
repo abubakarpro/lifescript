@@ -58,7 +58,7 @@ const SelectBookCover = () => {
           <Box display="flex" justifyContent="flex-end" mt="40px">
             <GlobelBtn
               btnText={`${t("BookCover.viewMore")}`}
-              border="1px solid #197065"
+              border="1px solid #30422E"
               width={"180px"}
             />
           </Box>

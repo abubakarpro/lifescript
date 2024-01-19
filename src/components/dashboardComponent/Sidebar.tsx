@@ -17,7 +17,7 @@ import SuportWhite from "@/_assets/svg/sidebar/support-white.svg";
 import SubsWhite from "@/_assets/svg/subWhite.svg";
 import Subs from "@/_assets/svg/subs.svg";
 import SuportGreen from "@/_assets/svg/supportIcon.svg";
-import Logo from "@/_assets/svg/white-logo.svg";
+import Logo from "@/_assets/svg/updatedWhiteLogo.svg";
 import { getBookCover } from "@/store/slices/chatSlice";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";

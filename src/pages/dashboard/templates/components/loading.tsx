@@ -51,8 +51,8 @@ const Loading = ({ isLoaded, progressCheck }) => {
     <Box
       sx={{
         height: "100vh",
-        bgcolor: "#FFF9F0",
-        color: "#197065",
+        bgcolor: "#F3ECDA",
+        color: "#30422E",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

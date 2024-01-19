@@ -119,10 +119,10 @@ const TimeTracker = ({ onChange }) => {
   return (
     <Box
       sx={{
-        color: "#197065;",
+        color: "#30422E;",
         marginTop: "15px",
         borderRadius: "14px",
-        border: "1px solid #197065",
+        border: "1px solid #30422E",
         background: "#FFF",
         height: "auto",
         position: "relative",
@@ -148,7 +148,7 @@ const TimeTracker = ({ onChange }) => {
       >
         <Box
           sx={{
-            border: "3px solid #197065",
+            border: "3px solid #30422E",
             borderRadius: "50%",
             width: { lg: "135px", sm: "110px", xs: "100px" },
             height: { lg: "135px", sm: "110px", xs: "100px" },
@@ -162,7 +162,7 @@ const TimeTracker = ({ onChange }) => {
         >
           <Box
             sx={{
-              border: "3px dashed #197065",
+              border: "3px dashed #30422E",
               borderRadius: "50%",
               width: "100%",
               height: "100%",
@@ -197,7 +197,7 @@ const TimeTracker = ({ onChange }) => {
 
         <Box
           sx={{
-            border: "2.5px solid #197065",
+            border: "2.5px solid #30422E",
             borderRadius: "50%",
             width: { lg: "99px", sm: "80px", xs: "70px" },
             height: { lg: "99px", sm: "80px", xs: "70px" },
@@ -207,7 +207,7 @@ const TimeTracker = ({ onChange }) => {
         >
           <Box
             sx={{
-              border: "2.5px dashed #197065",
+              border: "2.5px dashed #30422E",
               borderRadius: "50%",
               width: "100%",
               height: "100%",
@@ -242,7 +242,7 @@ const TimeTracker = ({ onChange }) => {
 
         <Box
           sx={{
-            border: "2.1px solid #197065",
+            border: "2.1px solid #30422E",
             borderRadius: "50%",
             width: { lg: "99px", sm: "80px", xs: "70px" },
             height: { lg: "99px", sm: "80px", xs: "70px" },
@@ -254,7 +254,7 @@ const TimeTracker = ({ onChange }) => {
         >
           <Box
             sx={{
-              border: "2.1px dashed #197065",
+              border: "2.1px dashed #30422E",
               borderRadius: "50%",
               width: "100%",
               height: "100%",

@@ -162,7 +162,7 @@ export default function TabOne({ onClick, data, setQaTab }) {
         }}
       >
         <GlobelBtn
-          bgColor="#186F65"
+          bgColor="#30422E"
           color="white"
           btnText="Next"
           onClick={() => onClick(selectedValue)}

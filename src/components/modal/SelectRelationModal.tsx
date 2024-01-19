@@ -38,7 +38,7 @@ const SelectRelationModal = ({
                   color: "black",
                   borderRadius: "6.091px",
                   mb: "10px",
-                  borderLeft: "8.25px solid #186F65",
+                  borderLeft: "8.25px solid #30422E",
                 }}
                 onClick={() => {
                   setFamilyRelationModal(false);

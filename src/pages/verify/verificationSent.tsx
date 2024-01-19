@@ -153,12 +153,12 @@ const EmailVerification = () => {
               onClick={(event: any) => handleVerifyEmail()}
               sx={{
                 borderRadius: "48px",
-                backgroundColor: "#186F65",
+                backgroundColor: "#30422E",
                 color: "white",
                 width: "310px",
                 marginTop: "20px",
                 "&:hover": {
-                  backgroundColor: "#186F65",
+                  backgroundColor: "#30422E",
                 },
                 textTransform: "none",
               }}

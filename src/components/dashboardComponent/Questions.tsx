@@ -125,7 +125,7 @@ export default function Questions({
             cursor: "pointer",
             bgcolor: "#F9F9F9",
             borderRadius: "8px",
-            borderLeft: "11px solid #186F65",
+            borderLeft: "11px solid #30422E",
             height: expanded ? "auto" : { sm: "50px", xs: "50px" },
             display: "flex",
             alignItems: "center",
@@ -178,7 +178,7 @@ export default function Questions({
                   onClick={handleSeeMoreClick}
                   sx={{
                     fontSize: "10px",
-                    color: "#197065",
+                    color: "#30422E",
                     width: "80px",
                     mt: "5px",
                   }}
@@ -212,7 +212,7 @@ export default function Questions({
                     sx={{
                       flexDirection: "column",
                       rowGap: "5px",
-                      color: "#197065",
+                      color: "#30422E",
                       height: "100%",
                       fontSize: "10px",
                       px: "16px",
@@ -231,7 +231,7 @@ export default function Questions({
                       display: "flex",
                       alignItems: "center",
                       columnGap: "5px",
-                      color: "#197065",
+                      color: "#30422E",
                       fontSize: "10px",
                       px: "16px",
                       py: "7px",

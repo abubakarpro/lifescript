@@ -1,22 +1,22 @@
-import DemoProfile from "@/_assets/svg/profile.svg";
+import Grey from "@/_assets/svg/Silver Token.svg";
 import Bronze from "@/_assets/svg/bronze-token.svg";
 import Gold from "@/_assets/svg/gold-token.svg";
-import Grey from "@/_assets/svg/Silver Token.svg";
 import Platinum from "@/_assets/svg/platinum-token.svg";
+import DemoProfile from "@/_assets/svg/profile.svg";
 import Silver from "@/_assets/svg/silver-token.svg";
 import { Box, Tooltip, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Custom.module.css";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
+import { getUserProfile, selectUser } from "@/store/slices/authSlice";
 import { getChapters, selectAllChapters } from "@/store/slices/chatSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserProfile, selectUser } from "@/store/slices/authSlice";
 
-const Profile = ({data}) => {
+const Profile = ({ data }) => {
   const { t } = useTranslation();
   const router = useRouter();
   const dispatch: any = useDispatch();
@@ -69,7 +69,7 @@ const Profile = ({data}) => {
         maxWidth: { lg: "326.25px", xs: "100%" },
         width: "100%",
         borderRadius: "19px",
-        border: "1px solid #186F65",
+        border: "1px solid #30422E",
         padding: { xs: "32px 28px 44px" },
       }}
     >
@@ -114,8 +114,14 @@ const Profile = ({data}) => {
             columnGap: { xl: "18px", lg: "4px" },
           }}
         >
-          <Box sx={{cursor: "pointer"}}>
-            <Tooltip title={data?.words < 500 ? "Bronze badge will be opened after writing 500 words" : "Bronze"}>
+          <Box sx={{ cursor: "pointer" }}>
+            <Tooltip
+              title={
+                data?.words < 500
+                  ? "Bronze badge will be opened after writing 500 words"
+                  : "Bronze"
+              }
+            >
               <Image
                 alt="tag"
                 src={data?.words < 499 ? Grey : Bronze}
@@ -123,8 +129,14 @@ const Profile = ({data}) => {
               />
             </Tooltip>
           </Box>
-          <Box sx={{cursor: "pointer"}}>
-            <Tooltip title={data?.chapters < 5 ? "Silver badge will be opened after completing 5 chapters" : "Silver"}>
+          <Box sx={{ cursor: "pointer" }}>
+            <Tooltip
+              title={
+                data?.chapters < 5
+                  ? "Silver badge will be opened after completing 5 chapters"
+                  : "Silver"
+              }
+            >
               <Image
                 alt="tag"
                 src={data?.chapters < 5 ? Grey : Silver}
@@ -132,8 +144,14 @@ const Profile = ({data}) => {
               />
             </Tooltip>
           </Box>
-          <Box sx={{cursor: "pointer"}}>
-            <Tooltip title={data?.questions < 100 ? "Gold badge will be opened after adding 100 questions" : "Gold"}>
+          <Box sx={{ cursor: "pointer" }}>
+            <Tooltip
+              title={
+                data?.questions < 100
+                  ? "Gold badge will be opened after adding 100 questions"
+                  : "Gold"
+              }
+            >
               <Image
                 alt="tag"
                 src={data?.questions < 100 ? Grey : Gold}
@@ -141,8 +159,14 @@ const Profile = ({data}) => {
               />
             </Tooltip>
           </Box>
-          <Box sx={{cursor: "pointer"}}>
-            <Tooltip title={data?.words < 5000 ? "Platinum badge will be opened after writing 5000 words" : "Platinum"}>
+          <Box sx={{ cursor: "pointer" }}>
+            <Tooltip
+              title={
+                data?.words < 5000
+                  ? "Platinum badge will be opened after writing 5000 words"
+                  : "Platinum"
+              }
+            >
               <Image
                 alt="tag"
                 src={data?.words < 5000 ? Grey : Platinum}
@@ -199,7 +223,7 @@ export const RecentChapters = ({ title, percentage, id }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        borderLeft: "10px solid #186F65",
+        borderLeft: "10px solid #30422E",
         padding: "8px 13px 8px 20px",
         marginBlock: "11px",
       }}
@@ -232,7 +256,7 @@ function CircularProgressWithLabel(props) {
         <Typography
           variant="caption"
           component="div"
-          color="#197065"
+          color="#30422E"
           sx={{ fontSize: "6px" }}
         >
           {`${Math.round(props.value)}%`}

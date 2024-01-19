@@ -76,7 +76,7 @@ const NavBar = ({ sideBarHandle }: { sideBarHandle?: () => void }) => {
   }
 
   // const options = [`${t("navBar.logout")}`];
-  const options = [{id:1, title: `${t("navBar.logout")}`}];
+  const options = [{ id: 1, title: `${t("navBar.logout")}` }];
 
   return (
     <Box
@@ -84,7 +84,7 @@ const NavBar = ({ sideBarHandle }: { sideBarHandle?: () => void }) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#197065",
+        backgroundColor: "#30422E",
         padding: { xs: "0px 8px", md: "0 14px" },
         height: { xs: "48px", lg: "70px" },
       }}
@@ -174,8 +174,8 @@ const NavBar = ({ sideBarHandle }: { sideBarHandle?: () => void }) => {
                   content: '""',
                   width: "10px",
                   height: "10px",
-                  borderBottom: "0.917px solid #197065",
-                  borderLeft: "0.917px solid #197065",
+                  borderBottom: "0.917px solid #30422E",
+                  borderLeft: "0.917px solid #30422E",
                   position: "absolute",
                   right: " 54.5px",
                   top: "-5px",
@@ -331,8 +331,8 @@ const NavBar = ({ sideBarHandle }: { sideBarHandle?: () => void }) => {
                   content: '""',
                   width: "10px",
                   height: "10px",
-                  borderBottom: "0.917px solid #197065",
-                  borderLeft: "0.917px solid #197065",
+                  borderBottom: "0.917px solid #30422E",
+                  borderLeft: "0.917px solid #30422E",
                   position: "absolute",
                   right: " 10.5px",
                   top: "-5px",

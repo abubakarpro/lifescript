@@ -15,7 +15,7 @@ const Layout = ({ children }: { children?: any }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "#FFF9F0",
+        backgroundColor: "#F3ECDA",
         overflowX: "hidden",
         minHeight: "100vh",
       }}
@@ -58,7 +58,7 @@ const Layout = ({ children }: { children?: any }) => {
           <Box
             sx={{
               width: "220px",
-              backgroundColor: "#197065",
+              backgroundColor: "#30422E",
               position: "fixed",
               bottom: "0",
               top: "0px",

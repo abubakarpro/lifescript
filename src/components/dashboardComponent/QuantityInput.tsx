@@ -22,7 +22,7 @@ const Counter: React.FC<CounterProps> = ({ min, setCount, count }) => {
     <Box display="flex" alignItems="center" gap={1}>
       <button
         style={{
-          background: "#197065",
+          background: "#30422E",
           borderRadius: "50%",
           width: "25px",
           height: "25px",
@@ -41,7 +41,7 @@ const Counter: React.FC<CounterProps> = ({ min, setCount, count }) => {
           width: "137px",
           height: "25px",
           bgcolor: "white",
-          border: "1.5px solid #186F65",
+          border: "1.5px solid #30422E",
           borderRadius: "20px",
           display: "flex",
           justifyContent: "center",
@@ -53,7 +53,7 @@ const Counter: React.FC<CounterProps> = ({ min, setCount, count }) => {
       </Typography>
       <button
         style={{
-          background: "#197065",
+          background: "#30422E",
           borderRadius: "50%",
           width: "25px",
           height: "25px",

@@ -219,12 +219,12 @@ const SupportScreen = () => {
           >
             <GlobelBtn
               btnText={`${t("support.ok")}`}
-              bgColor="#197065"
+              bgColor="#30422E"
               borderRadius="23px"
               color="#fff"
               // width={{ md: "234px", sm: "153px", xs: "103px" }}
               // fontSize={{ md: "18px", sm: "13.627px", xs: "8.542px" }}
-              border="1px solid #197065"
+              border="1px solid #30422E"
               onClick={() => {
                 setShowModal(false);
               }}

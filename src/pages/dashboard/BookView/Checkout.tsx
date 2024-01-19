@@ -1,21 +1,20 @@
 import GlobelBtn from "@/components/button/Button";
-import { Box, Checkbox, Typography } from "@mui/material";
-import backArrow from "../../../_assets/svg/left.svg";
-import NextArrow from "../../../_assets/svg/rightArrow.svg";
-import CheckoutForm from "./components/CheckoutForm";
-import ShippingCard from "./components/ShippingCard";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
 import {
   getLuluBalance,
   luluCall,
   selectLuluBalance,
-  selectLuluPaymentStatus,
 } from "@/store/slices/authSlice";
+import { Box, Checkbox, Typography } from "@mui/material";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import backArrow from "../../../_assets/svg/left.svg";
+import NextArrow from "../../../_assets/svg/rightArrow.svg";
+import CheckoutForm from "./components/CheckoutForm";
+import ShippingCard from "./components/ShippingCard";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_API_KEY);
 
@@ -30,7 +29,10 @@ const Checkout = ({ setSelectedTab, setCount, count, remainingPayment }) => {
       dispatch(luluCall({ quantity: count }))
         .unwrap()
         .then(() => router.push("/dashboard/overview"))
-        .catch(() => {toast.error("Failed to call Lulu api"); router.push("/dashboard/overview");});
+        .catch(() => {
+          toast.error("Failed to call Lulu api");
+          router.push("/dashboard/overview");
+        });
     }
   };
 
@@ -122,7 +124,7 @@ const Checkout = ({ setSelectedTab, setCount, count, remainingPayment }) => {
               </Box>
               <Box>
                 <GlobelBtn
-                  bgColor="#186F65"
+                  bgColor="#30422E"
                   color="white"
                   btnText="Finish"
                   image2={NextArrow}

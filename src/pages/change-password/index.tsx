@@ -8,21 +8,20 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 const CryptoJS = require("crypto-js");
 
+import { ChangePassword } from "@/interface/authInterface";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useFormik } from "formik";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import * as Yup from "yup";
-import Forget from "../../../public/ForgetPasswod.svg";
-import Logo from "../../../public/logo.svg";
 import { useTranslation } from "react-i18next";
-import { ChangePassword } from "@/interface/authInterface";
 import { toast } from "react-toastify";
-import Carousel from "../../components/authComponent/Carousel";
-import Carousel1 from "../../../public/carousel1.png";
+import * as Yup from "yup";
 import Carousel2 from "../../../public/carousel.png";
+import Carousel1 from "../../../public/carousel1.png";
 import Carousel3 from "../../../public/carousel3.png";
+import Logo from "../../../public/logo.svg";
+import Carousel from "../../components/authComponent/Carousel";
 
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -86,13 +85,13 @@ const ResetPassword = () => {
         });
     },
     validationSchema: Yup.object({
-      password: Yup.string().required( t("ResetPassword.passwordRequired")),
+      password: Yup.string().required(t("ResetPassword.passwordRequired")),
       confirmPassword: Yup.string()
         .required(t("ResetPassword.confirmPasswordRequired"))
         .oneOf([Yup.ref("password")], t("ResetPassword.passwordDoesn'tMatch")),
     }),
   });
-const carouselItems = [
+  const carouselItems = [
     { path: Carousel1, alt: "Login Image" },
     { path: Carousel2, alt: "Signup Image" },
     { path: Carousel3, alt: "Signup Image" },
@@ -100,7 +99,6 @@ const carouselItems = [
     // Add more images as needed
   ];
   return (
-    
     <Box
       sx={{
         display: "grid",
@@ -138,7 +136,7 @@ const carouselItems = [
 
                 marginTop: "34px",
                 fontSize: "21px",
-                color:'black'
+                color: "black",
               }}
             >
               {t("ResetPassword.password")}
@@ -184,8 +182,7 @@ const carouselItems = [
 
                 marginTop: "40px",
                 fontSize: "21px",
-                color:'black'
-
+                color: "black",
               }}
             >
               {t("ResetPassword.confirmPassword")}
@@ -237,19 +234,19 @@ const carouselItems = [
             disabled={!formik.values.email}
             sx={{
               borderRadius: "48px",
-              backgroundColor: "#186F65",
+              backgroundColor: "#30422E",
               color: "white",
               width: "404px",
               pt: "16px",
               pb: "16px",
 
               "&:hover": {
-                backgroundColor: "#186F65",
+                backgroundColor: "#30422E",
               },
               textTransform: "none",
             }}
           >
-               {t("ResetPassword.confirm")}
+            {t("ResetPassword.confirm")}
           </Button>
 
           <Typography
@@ -259,7 +256,8 @@ const carouselItems = [
               fontSize: "18px",
             }}
           >
-            {t("ResetPassword.redirect")} <br />{t("ResetPassword.loginPage")}
+            {t("ResetPassword.redirect")} <br />
+            {t("ResetPassword.loginPage")}
           </Typography>
         </Box>
       </Box>

@@ -307,7 +307,7 @@ const chapterName = () => {
           >
             <GlobelBtn
               btnText={`${t("template.temModal.SEBtn")}`}
-              bgColor="#197065"
+              bgColor="#30422E"
               color="white"
               onClick={() => {
                 router.push("/dashboard/chapters");

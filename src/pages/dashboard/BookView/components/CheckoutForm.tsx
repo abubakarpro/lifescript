@@ -1,10 +1,11 @@
-import InputWithLabel from "@/components/Input";
 import GlobelBtn from "@/components/button/Button";
+import TransitionsDialog from "@/components/modal/TransitionDialog";
+import {
+  selectLuluPaymentStatus,
+  stripPaymentLulu,
+  updateLuluPaymentStatus,
+} from "@/store/slices/authSlice";
 import { Box, TextField, Typography } from "@mui/material";
-import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import TickBg from "../../../../_assets/svg/bgTickIcon.svg";
-import CrossBg from "../../../../_assets/svg/cancel.svg";
 import {
   CardCvcElement,
   CardExpiryElement,
@@ -12,16 +13,12 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { useDispatch, useSelector } from "react-redux";
 import dynamic from "next/dynamic";
-import {
-  getLuluBalance,
-  selectLuluBalance,
-  selectLuluPaymentStatus,
-  stripPaymentLulu,
-  updateLuluPaymentStatus,
-} from "@/store/slices/authSlice";
-import TransitionsDialog from "@/components/modal/TransitionDialog";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import TickBg from "../../../../_assets/svg/bgTickIcon.svg";
+import CrossBg from "../../../../_assets/svg/cancel.svg";
 
 const useOptions = () => {
   const fontSize = "16px";
@@ -68,8 +65,8 @@ const CheckoutForm = ({ quantity, remainingPayment }) => {
   }, [luluPaymentStatus]);
 
   useEffect(() => {
-      dispatch(updateLuluPaymentStatus(" "));
-      setStripeSucceed(false);
+    dispatch(updateLuluPaymentStatus(" "));
+    setStripeSucceed(false);
   }, []);
 
   const handleSubmit = async (event) => {
@@ -205,7 +202,7 @@ const CheckoutForm = ({ quantity, remainingPayment }) => {
                 borderRadius: "50px",
                 backgroundColor: "white",
                 p: "12px 35px",
-                border: "1px solid #186F65",
+                border: "1px solid #30422E",
               }}
             >
               <CardNumberElement
@@ -234,7 +231,7 @@ const CheckoutForm = ({ quantity, remainingPayment }) => {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "50px",
                   backgroundColor: "white",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                   height: "46px",
                 },
                 width: "100%",
@@ -265,7 +262,7 @@ const CheckoutForm = ({ quantity, remainingPayment }) => {
                   borderRadius: "50px",
                   backgroundColor: "white",
                   p: "12px 35px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                 }}
               >
                 <CardExpiryElement
@@ -291,7 +288,7 @@ const CheckoutForm = ({ quantity, remainingPayment }) => {
                   borderRadius: "50px",
                   backgroundColor: "white",
                   p: "12px 35px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                 }}
               >
                 <CardCvcElement
@@ -308,7 +305,7 @@ const CheckoutForm = ({ quantity, remainingPayment }) => {
           ></Box>
           <GlobelBtn
             btnText="Proceed to pay"
-            bgColor=" #197065"
+            bgColor=" #30422E"
             color="white"
             p="10px 0px"
             onClick={() => {

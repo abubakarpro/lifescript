@@ -109,7 +109,7 @@ export const StartNewChapter = ({ addChapterClick }: ChapterProps) => {
                 </Box>
                 <Typography
                   sx={{
-                    color: "#197065",
+                    color: "#30422E",
                     fontWeight: 600,
                     fontSize: { md: "14px", sm: "13.4px", xs: " 10.34px" },
                   }}
@@ -133,9 +133,9 @@ export const StartNewChapter = ({ addChapterClick }: ChapterProps) => {
                     marginBottom: "2%",
                     cursor: "pointer",
                     "&:hover": {
-                      borderColor: "#197065",
+                      borderColor: "#30422E",
                       borderStyle: "dashed",
-                      color: "#197065",
+                      color: "#30422E",
                     },
                   }}
                   onMouseEnter={handleHoverStartNewChapter}
@@ -158,7 +158,7 @@ export const StartNewChapter = ({ addChapterClick }: ChapterProps) => {
                   </Box>
                   <Typography
                     sx={{
-                      color: hoverStartNewChapter ? "#197065" : "#CDCDCD",
+                      color: hoverStartNewChapter ? "#30422E" : "#CDCDCD",
                       fontWeight: 600,
                       fontSize: { md: "14px", sm: "13.4", xs: " 10.34px" },
                     }}
@@ -178,9 +178,9 @@ export const StartNewChapter = ({ addChapterClick }: ChapterProps) => {
                     borderRadius: "4px",
                     cursor: "pointer",
                     "&:hover": {
-                      borderColor: "#197065",
+                      borderColor: "#30422E",
                       borderStyle: "dashed",
-                      color: "#197065",
+                      color: "#30422E",
                     },
                   }}
                   onMouseEnter={handleHoverUseTemplate}
@@ -201,7 +201,7 @@ export const StartNewChapter = ({ addChapterClick }: ChapterProps) => {
                   </Box>
                   <Typography
                     sx={{
-                      color: hoverUseTemplate ? "#197065" : "#CDCDCD",
+                      color: hoverUseTemplate ? "#30422E" : "#CDCDCD",
                       fontWeight: 600,
                       fontSize: { md: "14px", sm: "13.4", xs: " 10.34px" },
                     }}

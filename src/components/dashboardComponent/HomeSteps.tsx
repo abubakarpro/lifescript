@@ -12,7 +12,7 @@ const HomeSteps = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#197065",
+        backgroundColor: "#30422E",
         color: "#fff",
         borderRadius: { sm: "24px", xs: "5px" },
         padding: { sm: "20px 45px", xs: "20px 40px" },

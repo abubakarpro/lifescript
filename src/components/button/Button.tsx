@@ -21,10 +21,10 @@ const GlobelBtn = ({
   bgColor,
   btnText,
   image,
-  color = "#197065",
+  color = "#30422E",
   width,
   borderRadius = "26.267px",
-  border = " 1.7px solid #197065",
+  border = " 1.7px solid #30422E",
   fontSize = {
     md: "14.6px",
     sm: "13.6px",

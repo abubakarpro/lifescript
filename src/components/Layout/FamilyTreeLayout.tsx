@@ -13,7 +13,7 @@ const FamilyTreeLayout = ({ children }: { children?: any }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "#FFF9F0",
+        backgroundColor: "#F3ECDA",
         overflowX: "hidden",
         minHeight: "100vh",
       }}

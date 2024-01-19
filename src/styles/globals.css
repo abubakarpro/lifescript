@@ -159,7 +159,7 @@ a {
 
 .css-1wqgwi1-MuiLinearProgress-bar1 {
   border-radius: 30px;
-  background: linear-gradient(90deg, #197065 0%, #1f9a8b 100%);
+  background: linear-gradient(90deg, #30422e 0%, #1f9a8b 100%);
 }
 
 .css-od7rqf-MuiLinearProgress-root::before {
@@ -178,7 +178,7 @@ a {
 }
 
 .css-zc2y38-MuiCircularProgress-root {
-  color: #197065 !important;
+  color: #30422e !important;
 }
 
 .css-2rbg70-MuiPaper-root-MuiDialog-paper {
@@ -208,7 +208,7 @@ a {
 .rdw-image-modal-btn:disabled,
 .rdw-embedded-modal-btn:disabled,
 .rdw-link-modal-btn:disabled {
-  background: #197065 !important;
+  background: #30422e !important;
   color: white !important;
   border-radius: 30px !important;
 }
@@ -217,7 +217,7 @@ a {
 .rdw-embedded-modal-btn,
 .rdw-link-modal-btn {
   background: transparent !important;
-  color: #197065 !important;
+  color: #30422e !important;
   border-radius: 30px !important;
-  border: 1px solid #197065 !important;
+  border: 1px solid #30422e !important;
 }

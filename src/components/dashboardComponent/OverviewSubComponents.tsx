@@ -1,20 +1,19 @@
+import ModalImage from "@/_assets/png/view-template-modal.png";
 import NextIcon from "@/_assets/svg/next-icon.svg";
+import { getChapters, selectAllChapters } from "@/store/slices/chatSlice";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useTranslation } from "react-i18next";
-import GlobelBtn from "../button/Button";
-import styles from "./Custom.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getChapters, selectAllChapters } from "@/store/slices/chatSlice";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import GlobelBtn from "../button/Button";
 import CustomizationDialog from "../modal/CustomizationDialog";
-import ModalImage from "@/_assets/png/view-template-modal.png";
 import TransitionsDialog from "../modal/TransitionDialog";
+import styles from "./Custom.module.css";
 
 export const ViewBook = () => {
-
-  const dispatch:any = useDispatch();
+  const dispatch: any = useDispatch();
   const chapters = useSelector(selectAllChapters);
   const [viewReady, setViewReady] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -36,17 +35,17 @@ export const ViewBook = () => {
 
   useEffect(() => {
     dispatch(getChapters());
-  },[]);
+  }, []);
 
   useEffect(() => {
-    if(chapters.length > 0){
+    if (chapters.length > 0) {
       const inProgressChapters = chapters.filter(
         (chapter) =>
           chapter.status !== true && chapter.compilingStatus === false
       );
       inProgressChapters.length > 0 ? setViewReady(false) : setViewReady(true);
     }
-  },[chapters])
+  }, [chapters]);
 
   const router = useRouter();
   const { t } = useTranslation();
@@ -54,16 +53,16 @@ export const ViewBook = () => {
     <>
       <Box
         onClick={() => {
-          if(!viewReady){
+          if (!viewReady) {
             setOpenModal(true);
-          }else if(!isPremium){
+          } else if (!isPremium) {
             setBuyPremium(true);
-          }else{
+          } else {
             router.push("/dashboard/BookView");
           }
         }}
         sx={{
-          bgcolor: "#197065",
+          bgcolor: "#30422E",
           color: "#fff",
           width: "100%",
           padding: "16px 0",
@@ -140,7 +139,7 @@ export const ViewBook = () => {
               margin: { md: "0 120px", sm: "0px 55px", xs: "0px" },
             }}
           >
-            Complete all chapters before View Book 
+            Complete all chapters before View Book
           </Typography>
           <Box
             sx={{
@@ -151,7 +150,7 @@ export const ViewBook = () => {
           >
             <GlobelBtn
               btnText="Edit"
-              bgColor="#197065"
+              bgColor="#30422E"
               color="white"
               onClick={() => {
                 router.push("/dashboard/chapters");
@@ -184,9 +183,9 @@ export const ViewTree = () => {
   const router = useRouter();
   return (
     <Box
-    onClick={() => router.push("/familyTree")}
+      onClick={() => router.push("/familyTree")}
       sx={{
-        bgcolor: "#197065",
+        bgcolor: "#30422E",
         cursor: "pointer",
         color: "#fff",
         width: "100%",
@@ -228,7 +227,7 @@ export const PrintBook = () => {
   return (
     <Box
       sx={{
-        color: "#197065",
+        color: "#30422E",
         bgcolor: "#fff",
         width: "100%",
         padding: { lg: "30px 30px", xs: "25px" },
@@ -237,7 +236,7 @@ export const PrintBook = () => {
         flexDirection: { sm: "row", xs: "column" },
         justifyContent: "space-between",
         gap: "15px",
-        border: "1px solid #197065",
+        border: "1px solid #30422E",
       }}
     >
       <Box sx={{ width: { md: "65%", sm: "85%", xs: "90%" } }}>
@@ -255,7 +254,7 @@ export const PrintBook = () => {
       </Box>
       <Box>
         <GlobelBtn
-          bgColor="#186F65"
+          bgColor="#30422E"
           color="white"
           btnText={`${t("overView.continue")}`}
           // onClick={}

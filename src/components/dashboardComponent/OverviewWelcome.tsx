@@ -23,7 +23,7 @@ const WelcomeOverview = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#197065",
+        backgroundColor: "#30422E",
         color: "#fff",
         borderRadius: "14px",
         padding: { xl: "20px 30px", lg: "15px 25px", xs: "12px 20px" },
@@ -72,7 +72,7 @@ const WelcomeOverview = () => {
           // btnText="| Continue Writing"
           bgColor="#fff"
           borderRadius="23px"
-          color="#186F65"
+          color="#30422E"
           fontSize={{ xs: "12px" }}
           border="0px"
         />

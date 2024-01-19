@@ -383,7 +383,7 @@ const ProfileSetting = () => {
         >
           <Box>
             <GlobelBtn
-              bgColor="#197065"
+              bgColor="#30422E"
               color="white"
               btnText={`${t("profileSetting.save")}`}
               onClick={() => {

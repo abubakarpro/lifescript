@@ -1,17 +1,16 @@
 import GlobelBtn from "@/components/button/Button";
-import { Box, Tooltip } from "@mui/material";
-import backArrow from "../../../_assets/svg/left.svg";
-import NextArrow from "../../../_assets/svg/rightArrow.svg";
-import ShippingCard from "./components/ShippingCard";
-import ShippingForm from "./components/ShippingForm";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   createLuluShipping,
   getLuluBalance,
   selectLuluBalance,
   updateLuluShipping,
 } from "@/store/slices/authSlice";
+import { Box, Tooltip } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import backArrow from "../../../_assets/svg/left.svg";
+import ShippingCard from "./components/ShippingCard";
+import ShippingForm from "./components/ShippingForm";
 
 const Shipping = ({
   setSelectedTab,
@@ -139,7 +138,7 @@ const Shipping = ({
               >
                 <Box>
                   <GlobelBtn
-                    bgColor="#186F65"
+                    bgColor="#30422E"
                     color="white"
                     btnText="Next"
                     border="0px"

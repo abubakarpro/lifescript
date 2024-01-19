@@ -232,12 +232,12 @@ const Login = ({ signinClick }) => {
             type="submit"
             sx={{
               borderRadius: "48px",
-              backgroundColor: "#186F65",
+              backgroundColor: "#30422E",
               color: "white",
               width: { md: "60%", sm: "70%", xs: "70%" },
               marginTop: { xs: "60px", sm: "20px" },
               "&:hover": {
-                backgroundColor: "#186F65",
+                backgroundColor: "#30422E",
               },
               textTransform: "capitalize",
             }}
@@ -321,7 +321,7 @@ const Login = ({ signinClick }) => {
             mt: "20px",
             fontSize: "16px",
             textAlign: "center",
-            color: "#186F65",
+            color: "#30422E",
           }}
         >
           {t("login-page.not-member")}

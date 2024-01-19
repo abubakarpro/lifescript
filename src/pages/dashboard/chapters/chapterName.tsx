@@ -536,10 +536,10 @@ const chapterName = () => {
           >
             <GlobelBtn
               btnText={`${t("ChName.ok")}`}
-              bgColor="#197065"
+              bgColor="#30422E"
               borderRadius="23px"
               color="#fff"
-              border="1px solid #197065"
+              border="1px solid #30422E"
               onClick={() => {
                 router.push("/dashboard/chapters");
                 setgptSocket(false);

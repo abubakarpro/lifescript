@@ -33,7 +33,7 @@ const EditBookCover = () => {
   const [byline, setByline] = useState("");
   const [coverId, setCoverId] = useState("");
 
-  const [selectedColor, setSelectedColor] = useState("#197065");
+  const [selectedColor, setSelectedColor] = useState("#30422E");
   const [droppedImage, setDroppedImage] = useState<string | ArrayBuffer | null>(
     null
   );
@@ -57,7 +57,7 @@ const EditBookCover = () => {
   };
 
   useEffect(() => {
-    !selectedColor && setSelectedColor("#197065");
+    !selectedColor && setSelectedColor("#30422E");
   }, [selectedColor]);
 
   const handleSaveCover = () => {
@@ -257,7 +257,7 @@ const EditBookCover = () => {
                   textAlign: "center",
                   fontWeight: "500",
                   p: "6px",
-                  border: " 0.355px solid #197065",
+                  border: " 0.355px solid #30422E",
                   borderRadius: "7.099px",
                 }}
               >
@@ -299,9 +299,9 @@ const EditBookCover = () => {
                         btnText={`${t("BookCoverCard.browserFile")}`}
                         bgColor="#fff"
                         borderRadius="23px"
-                        color="#197065"
+                        color="#30422E"
                         fontSize={{ sm: "10.6px", xs: "8.542px" }}
-                        border="1px solid #197065"
+                        border="1px solid #30422E"
                         p="5px 20px"
                       />
                     </Box>
@@ -336,7 +336,7 @@ const EditBookCover = () => {
                     btnText={`${t("BookCoverCard.changeCover")}`}
                     bgColor="transparent"
                     borderRadius="23px"
-                    color="#197065"
+                    color="#30422E"
                     fontSize={{ xs: "12px", md: "16px" }}
                     onClick={() => {
                       router.push("/dashboard/BookCover/SelectBookCover");
@@ -360,7 +360,7 @@ const EditBookCover = () => {
                         ? `${t("BookCoverCard.UpdateCover")}`
                         : `${t("BookCoverCard.saveCover")}`
                     }
-                    bgColor="#197065"
+                    bgColor="#30422E"
                     borderRadius="23px"
                     color="#fff"
                     fontSize={{ xs: "12px", md: "16px" }}

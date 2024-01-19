@@ -184,7 +184,7 @@ const FamilyTreeDataModal = ({
                 width: { md: "100px", sm: "90px", xs: "80px" },
                 height: { md: "100px", sm: "90px", xs: "80px" },
                 borderRadius: "50%",
-                border: "1px solid #186F65",
+                border: "1px solid #30422E",
                 position: "relative",
                 flexShrink: "0",
               }}
@@ -362,7 +362,7 @@ const FamilyTreeDataModal = ({
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "17px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                   height: "35px",
                   pl: "5px",
                   fontSize: "14px",
@@ -401,7 +401,7 @@ const FamilyTreeDataModal = ({
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "17px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                   height: "35px",
                   pl: "5px",
                   fontSize: "14px",
@@ -437,7 +437,7 @@ const FamilyTreeDataModal = ({
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "17px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                   height: "35px",
                   pl: "5px",
                   fontSize: "14px",
@@ -549,7 +549,7 @@ const FamilyTreeDataModal = ({
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "17px",
-                    border: "1px solid #186F65",
+                    border: "1px solid #30422E",
                     height: "35px",
                     pl: "5px",
                     fontSize: "14px",
@@ -571,7 +571,7 @@ const FamilyTreeDataModal = ({
             <GlobelBtn
               btnText="Submit"
               color="white"
-              bgColor="#197065"
+              bgColor="#30422E"
               onClick={handleSubmit}
               disabled={!inputValueName}
               width="100%"

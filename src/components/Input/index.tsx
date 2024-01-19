@@ -21,7 +21,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   borderRadius,
   bgColor,
   value,
-  border = "1px solid #186F65",
+  border = "1px solid #30422E",
   height = "56px",
   color,
   onChange = () => {},

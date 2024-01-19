@@ -22,7 +22,7 @@ const SelectBookCoverCard: React.FC<SelectBookCoverCardProps> = ({
   title = "",
   subtitle = "",
   Byline = "",
-  ColourPalette = "#197065",
+  ColourPalette = "#30422E",
   droppedImage,
 }) => {
   const currentPath = usePathname();
@@ -46,7 +46,7 @@ const SelectBookCoverCard: React.FC<SelectBookCoverCardProps> = ({
         sx={{
           bgcolor: "white",
           borderRadius: "6.077px",
-          border: " 0.304px solid #197065",
+          border: " 0.304px solid #30422E",
           width: "100%",
           height: "100%",
           p: "53px 20px",
@@ -88,7 +88,7 @@ const SelectBookCoverCard: React.FC<SelectBookCoverCardProps> = ({
               sx={{
                 width: { xs: "260px", md: "240px", lg: "287.611px" },
                 height: "414.319px",
-                bgcolor: ColourPalette.length == 0 ? "#197065" : ColourPalette,
+                bgcolor: ColourPalette.length == 0 ? "#30422E" : ColourPalette,
                 color: "white",
                 textAlign: "center",
                 p: "10px",
@@ -97,7 +97,7 @@ const SelectBookCoverCard: React.FC<SelectBookCoverCardProps> = ({
           )}
           <Box
             sx={{
-              bgcolor: ColourPalette.length == 0 ? "#197065" : ColourPalette,
+              bgcolor: ColourPalette.length == 0 ? "#30422E" : ColourPalette,
               color: "white",
               fontSize: "9.924px",
               fontWeight: "300",
@@ -138,7 +138,7 @@ const SelectBookCoverCard: React.FC<SelectBookCoverCardProps> = ({
             sx={{
               width: { xs: "240px", md: "240px", lg: "287.611px" },
               height: "414.319px",
-              bgcolor: ColourPalette.length == 0 ? "#197065" : ColourPalette,
+              bgcolor: ColourPalette.length == 0 ? "#30422E" : ColourPalette,
               color: "white",
               textAlign: "center",
               p: "10px",

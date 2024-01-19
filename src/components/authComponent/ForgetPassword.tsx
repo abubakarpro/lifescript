@@ -124,13 +124,13 @@ const ForgetPassword = () => {
               type="submit"
               sx={{
                 borderRadius: "48px",
-                backgroundColor: "#186F65",
+                backgroundColor: "#30422E",
                 color: "white",
                 width: "310px",
                 padding: "10px",
                 // marginTop: "20px",
                 "&:hover": {
-                  backgroundColor: "#186F65",
+                  backgroundColor: "#30422E",
                 },
                 textTransform: "none",
               }}
@@ -139,7 +139,7 @@ const ForgetPassword = () => {
             </Button> */}
 
             <GlobelBtn
-              bgColor="#186F65"
+              bgColor="#30422E"
               color="white"
               btnText="Continue"
               onClick={(event) => formik.handleSubmit()}

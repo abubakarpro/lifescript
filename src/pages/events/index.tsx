@@ -20,7 +20,7 @@ export default function Answers() {
               sm: "20px 40px 80px",
               xs: "20px 20px 50px",
             },
-            border: "1px solid #197065",
+            border: "1px solid #30422E",
           }}
         >
           <RichText questionId={questionId} />

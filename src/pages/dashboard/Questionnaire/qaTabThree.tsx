@@ -255,7 +255,7 @@ export default function TabThree({ onClickBack, onClickNext, data, setQaTab }) {
         </Box>
         <Box>
           <GlobelBtn
-            bgColor="#186F65"
+            bgColor="#30422E"
             color="white"
             btnText="Take me in"
             onClick={() =>

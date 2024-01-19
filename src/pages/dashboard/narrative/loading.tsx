@@ -50,8 +50,8 @@ const Loading = () => {
     <Box
       sx={{
         height: "100vh",
-        bgcolor: "#FFF9F0",
-        color: "#197065",
+        bgcolor: "#F3ECDA",
+        color: "#30422E",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -62,7 +62,7 @@ const Loading = () => {
         {progress < 100 && `${t("narrativeLoading.ReadingContent")}`}
         {progress === 100 && !showCompletion && isLoaded === "loaded" && (
           <a
-            style={{ borderBottom: "3px solid #197065" }}
+            style={{ borderBottom: "3px solid #30422E" }}
             onClick={() =>
               router.push(
                 `/dashboard/narrative?chapterId=${chapterId}&openai=${openai}`

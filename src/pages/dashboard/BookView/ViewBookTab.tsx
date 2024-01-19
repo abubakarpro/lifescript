@@ -6,8 +6,8 @@ import NextArrow from "../../../_assets/svg/rightArrow.svg";
 
 const ReviewInterior = ({ setSelectedTab, interior }) => {
   const pdfUrl =
-  "https://lifescript-media.s3.eu-north-1.amazonaws.com/82482b3f-42dd-4f63-82f2-78b1a5fd9e72-aqibbook.pdf";
-  console.log("interior2",interior);
+    "https://lifescript-media.s3.eu-north-1.amazonaws.com/82482b3f-42dd-4f63-82f2-78b1a5fd9e72-aqibbook.pdf";
+  console.log("interior2", interior);
   // const pdfUrl = interior;
   return (
     <Box>
@@ -16,7 +16,7 @@ const ReviewInterior = ({ setSelectedTab, interior }) => {
           p: "26px 28px",
           bgcolor: "white",
           borderRadius: "7.348px",
-          border: "0.367px solid #197065",
+          border: "0.367px solid #30422E",
           height: "1100px",
         }}
       >
@@ -45,7 +45,7 @@ const ReviewInterior = ({ setSelectedTab, interior }) => {
         </Box>
         <Box>
           <GlobelBtn
-            bgColor="#186F65"
+            bgColor="#30422E"
             color="white"
             btnText="Next"
             image2={NextArrow}

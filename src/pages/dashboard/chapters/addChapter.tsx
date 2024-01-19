@@ -45,10 +45,10 @@ export default function AddChapter({ chapterData, data, btnText = "Submit" }) {
         <GlobelBtn
           disabled={!chapter}
           btnText={btnText}
-          bgColor="#197065"
+          bgColor="#30422E"
           color="#fff"
           // width={{ md: "234px", sm: "153px", xs: "103px" }}
-          // border="1px solid #197065"
+          // border="1px solid #30422E"
           onClick={(event: any) => handleSubmit()}
         />
       </Box>

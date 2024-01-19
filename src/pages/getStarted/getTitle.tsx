@@ -85,9 +85,9 @@ const getTitle = () => {
         <Box
           sx={{
             backgroundImage: { sm: 'url("/GetTitle.svg")' },
-            bgcolor: { xs: "#FFF9F0" },
-            borderTop: { xs: "55px solid #197065", sm: "none" },
-            borderBottom: { xs: "55px solid #197065", sm: "none" },
+            bgcolor: { xs: "#F3ECDA" },
+            borderTop: { xs: "55px solid #30422E", sm: "none" },
+            borderBottom: { xs: "55px solid #30422E", sm: "none" },
             backgroundSize: "cover",
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",

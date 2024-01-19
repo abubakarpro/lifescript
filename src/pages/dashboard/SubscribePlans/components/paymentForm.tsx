@@ -134,7 +134,7 @@ const PaymentForm = ({ packageName, price }) => {
                 borderRadius: "50px",
                 backgroundColor: "white",
                 p: "12px 35px",
-                border: "1px solid #186F65",
+                border: "1px solid #30422E",
               }}
             >
               <CardNumberElement
@@ -165,7 +165,7 @@ const PaymentForm = ({ packageName, price }) => {
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "50px",
                   backgroundColor: "white",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                   height: "46px",
                 },
                 width: "100%",
@@ -197,7 +197,7 @@ const PaymentForm = ({ packageName, price }) => {
                   borderRadius: "50px",
                   backgroundColor: "white",
                   p: "12px 35px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                 }}
               >
                 <CardExpiryElement
@@ -224,7 +224,7 @@ const PaymentForm = ({ packageName, price }) => {
                   borderRadius: "50px",
                   backgroundColor: "white",
                   p: "12px 35px",
-                  border: "1px solid #186F65",
+                  border: "1px solid #30422E",
                 }}
               >
                 <CardCvcElement
@@ -246,7 +246,7 @@ const PaymentForm = ({ packageName, price }) => {
         >
           <Box>
             <GlobelBtn
-              bgColor="#197065"
+              bgColor="#30422E"
               color="white"
               btnText={
                 loading
@@ -338,7 +338,7 @@ const PaymentForm = ({ packageName, price }) => {
             }}
           >
             <GlobelBtn
-              bgColor="#197065"
+              bgColor="#30422E"
               color="white"
               btnText={
                 stripeFailed

@@ -18,7 +18,7 @@ const SubscriptionHeader = ({
   return (
     <Box
       sx={{
-        backgroundColor: "#197065",
+        backgroundColor: "#30422E",
         color: "#fff",
         borderRadius: { sm: "24px", xs: "10px" },
         display: "flex",

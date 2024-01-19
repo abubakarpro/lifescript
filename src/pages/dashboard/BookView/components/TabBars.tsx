@@ -26,7 +26,7 @@ const TabBars = ({ tabs }) => {
           <Typography
             sx={{
               marginBottom: "5px",
-              color: tab.active ? "#197065" : "#7C7C7C",
+              color: tab.active ? "#30422E" : "#7C7C7C",
               fontSize: { md: "14.097px", sm: "10px", xs: "10px" },
               fontWeight: 700,
               textAlign: "left",
@@ -36,10 +36,10 @@ const TabBars = ({ tabs }) => {
           </Typography>
           <Grid
             sx={{
-              bgcolor: tab.active ? "#197065" : "",
+              bgcolor: tab.active ? "#30422E" : "",
               borderRadius: "2px",
               height: "9px",
-              border: "1px solid #197065",
+              border: "1px solid #30422E",
               width: "100%",
             }}
           />

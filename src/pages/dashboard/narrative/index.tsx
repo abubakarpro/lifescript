@@ -161,14 +161,14 @@ const NarrativeResponse = () => {
                       bgColor="#ffff"
                       btnText={`${t("narrative.editRes")}`}
                       borderRadius="27px"
-                      color="#197065"
+                      color="#30422E"
                       onClick={() =>
                         router.push(
                           `/events?compileChapterId=${chapterId}&openai=${responseType}`
                         )
                       }
                       image={EditIcon}
-                      border="1px solid #197065"
+                      border="1px solid #30422E"
                       fontSize={{ xs: "12px" }}
                       p="4px 20px"
                     />
@@ -176,13 +176,13 @@ const NarrativeResponse = () => {
 
                   <Box>
                     <GlobelBtn
-                      bgColor="#197065"
+                      bgColor="#30422E"
                       btnText={`${t("narrative.saveRes")}`}
                       borderRadius="27px"
                       color="#fff"
                       onClick={() => setSaveResponseModal(true)}
                       image={SaveIcon}
-                      border="1px solid #197065"
+                      border="1px solid #30422E"
                       fontSize={{ xs: "12px" }}
                       p="4px 20px"
                     />
@@ -296,7 +296,7 @@ const NarrativeResponse = () => {
                       title="Revert Response"
                       background="#fff"
                       borderRadius="27px"
-                      color="#197065"
+                      color="#30422E"
                       width="170px"
                       height="30px"
                       fontSize="14px"
@@ -304,17 +304,17 @@ const NarrativeResponse = () => {
                       onClick={() => {
                         setRevertModal(true);
                       }}
-                      border="1px solid #197065"
+                      border="1px solid #30422E"
                     /> */}
                     <Box>
                       <GlobelBtn
                         bgColor="#fff"
                         btnText={`${t("narrative.RevertRes")}`}
                         borderRadius="27px"
-                        color="#197065"
+                        color="#30422E"
                         onClick={() => setRevertModal(true)}
                         image={RevertIcon}
-                        border="1px solid #197065"
+                        border="1px solid #30422E"
                         p="4px 20px"
                       />
                     </Box>

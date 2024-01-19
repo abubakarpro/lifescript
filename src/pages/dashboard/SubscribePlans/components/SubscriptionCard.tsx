@@ -72,7 +72,7 @@ const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
             fontWeight: "700",
             textTransform: "capitalize",
             mb: { md: "17px", sm: "13px", xs: "8px" },
-            color: "#197065",
+            color: "#30422E",
           }}
         >
           ${price}
@@ -147,7 +147,7 @@ const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
       {btnCheck && (
         <Box>
           <GlobelBtn
-            bgColor="#197065"
+            bgColor="#30422E"
             color="white"
             btnText={`${t("SubsPlan.cardBtn")}`}
             onClick={() => onClick(price)}

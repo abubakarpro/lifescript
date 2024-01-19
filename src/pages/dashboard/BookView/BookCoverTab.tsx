@@ -1,16 +1,19 @@
 import GlobelBtn from "@/components/button/Button";
 import SelectBookCoverCard from "@/components/dashboardComponent/SelectBookCoverCard";
+import {
+  getBookCover,
+  selectCoverData,
+  uploadImage,
+} from "@/store/slices/chatSlice";
 import { Box } from "@mui/material";
-import backArrow from "../../../_assets/svg/left.svg";
-import NextArrow from "../../../_assets/svg/rightArrow.svg";
+import jsPDF from "jspdf";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBookCover, selectCoverData, uploadImage } from "@/store/slices/chatSlice";
-import jsPDF from "jspdf";
+import backArrow from "../../../_assets/svg/left.svg";
+import NextArrow from "../../../_assets/svg/rightArrow.svg";
 
 const BookCoverTab = ({ setSelectedTab, pages }) => {
-
-  const dispatch:any = useDispatch();
+  const dispatch: any = useDispatch();
   const [spineSize, setSpineSize] = useState(null);
   const coverData = useSelector(selectCoverData);
   console.log("coverData", coverData);
@@ -242,15 +245,32 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
   };
 
   const generateAndUploadPDF = async () => {
-    const pdfContent = coverData?.coverNumber === "1" ? await generatePDFOne(coverData.byLine, coverData.title, coverData.subTitle, coverData.image, coverData.color, spineSize) : await generatePDFTwo(coverData.byLine, coverData.title, coverData.subTitle, coverData.image, coverData.color, spineSize);
-  
+    const pdfContent =
+      coverData?.coverNumber === "1"
+        ? await generatePDFOne(
+            coverData.byLine,
+            coverData.title,
+            coverData.subTitle,
+            coverData.image,
+            coverData.color,
+            spineSize
+          )
+        : await generatePDFTwo(
+            coverData.byLine,
+            coverData.title,
+            coverData.subTitle,
+            coverData.image,
+            coverData.color,
+            spineSize
+          );
+
     // Convert data URI to Blob
     const pdfBlob = await fetch(pdfContent).then((res) => res.blob());
-  
+
     // Create FormData and append the Blob
     const formData = new FormData();
     formData.append("image", pdfBlob, "luluBookCover.pdf");
-  
+
     // Make API request to upload PDF to Cloudinary
     dispatch(uploadImage(formData))
       .unwrap()
@@ -258,84 +278,83 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
         console.log("Uploaded PDF URL:", pdfUrl);
       });
   };
-  
 
   useEffect(() => {
     dispatch(getBookCover());
-  },[])
+  }, []);
 
   useEffect(() => {
-    if(pages){
+    if (pages) {
       const spine = calculatePageSize(pages);
       setSpineSize(spine);
     }
-  },[pages])
+  }, [pages]);
 
   function calculatePageSize(pages) {
     if (pages >= 0 && pages <= 23) {
-        return 0;
+      return 0;
     } else if (pages >= 24 && pages <= 84) {
-        return 6;
+      return 6;
     } else if (pages >= 85 && pages <= 140) {
-        return 13;
+      return 13;
     } else if (pages >= 141 && pages <= 168) {
-        return 16;
+      return 16;
     } else if (pages >= 169 && pages <= 194) {
-        return 17;
+      return 17;
     } else if (pages >= 195 && pages <= 222) {
-        return 19;
+      return 19;
     } else if (pages >= 223 && pages <= 250) {
-        return 21;
+      return 21;
     } else if (pages >= 251 && pages <= 278) {
-        return 22;
+      return 22;
     } else if (pages >= 279 && pages <= 306) {
-        return 24;
+      return 24;
     } else if (pages >= 307 && pages <= 334) {
-        return 25;
+      return 25;
     } else if (pages >= 335 && pages <= 360) {
-        return 27;
+      return 27;
     } else if (pages >= 361 && pages <= 388) {
-        return 29;
+      return 29;
     } else if (pages >= 389 && pages <= 416) {
-        return 30;
+      return 30;
     } else if (pages >= 417 && pages <= 444) {
-        return 32;
+      return 32;
     } else if (pages >= 445 && pages <= 472) {
-        return 33;
+      return 33;
     } else if (pages >= 473 && pages <= 500) {
-        return 35;
+      return 35;
     } else if (pages >= 501 && pages <= 528) {
-        return 37;
+      return 37;
     } else if (pages >= 529 && pages <= 556) {
-        return 38;
+      return 38;
     } else if (pages >= 557 && pages <= 582) {
-        return 40;
+      return 40;
     } else if (pages >= 583 && pages <= 610) {
-        return 41;
+      return 41;
     } else if (pages >= 611 && pages <= 638) {
-        return 43;
+      return 43;
     } else if (pages >= 639 && pages <= 666) {
-        return 44;
+      return 44;
     } else if (pages >= 667 && pages <= 694) {
-        return 46;
+      return 46;
     } else if (pages >= 695 && pages <= 722) {
-        return 48;
+      return 48;
     } else if (pages >= 723 && pages <= 750) {
-        return 49;
+      return 49;
     } else if (pages >= 751 && pages <= 778) {
-        return 51;
+      return 51;
     } else if (pages >= 779 && pages <= 799) {
-        return 52;
+      return 52;
     } else if (pages >= 800) {
-        return 54;
+      return 54;
     } else {
-        // Handle invalid input
-        return null;
+      // Handle invalid input
+      return null;
     }
-}
+  }
 
   return (
-    <Box bgcolor={"#FFF9F0"}>
+    <Box bgcolor={"#F3ECDA"}>
       <Box
         onClick={(e) => {
           handleClick(e);
@@ -373,7 +392,7 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
             </Box>
             <Box>
               <GlobelBtn
-                bgColor="#186F65"
+                bgColor="#30422E"
                 color="white"
                 btnText="Next"
                 image2={NextArrow}

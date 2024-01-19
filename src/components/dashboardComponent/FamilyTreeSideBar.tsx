@@ -1,17 +1,17 @@
-import MenuIcon from "@/_assets/svg/sidebar/menuIcon.svg";
 import DemoProfile from "@/_assets/svg/profile.svg";
+import MenuIcon from "@/_assets/svg/sidebar/menuIcon.svg";
 import Logo from "@/_assets/svg/white-logo.svg";
+import { selectTreeData } from "@/store/slices/chatSlice";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Box, Typography } from "@mui/material";
+import * as d3 from "d3";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import CameraIcon from "../../_assets/svg/cameraIcon.svg";
 import Profile from "../../_assets/svg/profile.svg";
 import styles from "./Sidebar.module.css";
-import * as d3 from "d3";
-import { selectTreeData } from "@/store/slices/chatSlice";
-import { useSelector } from "react-redux";
 
 const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
   const [childsOpen, setChilsdOpen] = useState(true);
@@ -51,7 +51,9 @@ const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
             myself: node?.data?.myself,
           };
           // Push the first object into the allNodes array
-          firstObject?.myself === true ? setSelectedNode(firstObject) : allNodes.push(firstObject);
+          firstObject?.myself === true
+            ? setSelectedNode(firstObject)
+            : allNodes.push(firstObject);
         }
 
         if (node?.data?.spouseName) {
@@ -73,7 +75,7 @@ const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
   }, [familyTreeData]);
 
   return (
-    <Box sx={{ color: "#fff", backgroundColor: "#197065" }}>
+    <Box sx={{ color: "#fff", backgroundColor: "#30422E" }}>
       {!handleSideCheck && (
         <Box sx={{ padding: "13px 20px", height: "70px" }}>
           <Image src={Logo} alt="logo" className={styles.logo} />
@@ -127,7 +129,7 @@ const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
                 width: { md: "54.875px", sm: "45px", xs: "35px" },
                 height: { md: "54.875px", sm: "45px", xs: "35px" },
                 borderRadius: "50%",
-                border: "1px solid #186F65",
+                border: "1px solid #30422E",
                 position: "relative",
                 margin: "auto",
               }}
@@ -166,7 +168,7 @@ const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
                 sx={{
                   width: { md: "14px", sm: "12px", xs: "10px" },
                   height: { md: "14px", sm: "12px", xs: "10px" },
-                  bgcolor: "#186F65",
+                  bgcolor: "#30422E",
                   position: "absolute",
                   right: "-2px",
                   bottom: "5px",
@@ -239,7 +241,7 @@ const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
                       width: { xs: "15px", md: "24px" },
                       ml: "5px",
                       mt: "3px",
-                      color: "#197065",
+                      color: "#30422E",
                     }}
                   />
                 ) : (
@@ -247,7 +249,7 @@ const FamilyTreeSideBar = ({ menuClick, handleSideCheck }) => {
                     sx={{
                       width: { xs: "15px", md: "24px" },
                       ml: "5px",
-                      color: "#197065",
+                      color: "#30422E",
                       mt: "3px",
                     }}
                   />

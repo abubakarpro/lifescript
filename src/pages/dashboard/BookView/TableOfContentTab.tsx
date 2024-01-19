@@ -1,14 +1,14 @@
-import GlobelBtn from "@/components/button/Button";
-import { Box, Typography } from "@mui/material";
-import NextArrow from "../../../_assets/svg/rightArrow.svg";
-import TOCMain from "../TableOfContent/components/TOCMain";
-import { useDispatch } from "react-redux";
-import { getBookInterior } from "@/store/slices/authSlice";
 import ModalImage from "@/_assets/png/view-template-modal.png";
-import { useState } from "react";
+import GlobelBtn from "@/components/button/Button";
+import CustomizationDialog from "@/components/modal/CustomizationDialog";
+import { getBookInterior } from "@/store/slices/authSlice";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import CustomizationDialog from "@/components/modal/CustomizationDialog";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import NextArrow from "../../../_assets/svg/rightArrow.svg";
+import TOCMain from "../TableOfContent/components/TOCMain";
 
 const TableOfContentTab = ({ setSelectedTab, bookData }) => {
   const dispatch: any = useDispatch();
@@ -36,7 +36,7 @@ const TableOfContentTab = ({ setSelectedTab, bookData }) => {
           }}
         >
           <GlobelBtn
-            bgColor="#186F65"
+            bgColor="#30422E"
             color="white"
             btnText={loading ? "Loading..." : "Next"}
             image2={NextArrow}
@@ -115,7 +115,7 @@ const TableOfContentTab = ({ setSelectedTab, bookData }) => {
           >
             <GlobelBtn
               btnText="Start Writing"
-              bgColor="#197065"
+              bgColor="#30422E"
               color="white"
               onClick={() => {
                 router.push("/dashboard/chapters");

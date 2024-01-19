@@ -23,7 +23,7 @@ const ViewBookCover = () => {
   const [byline, setByline] = useState("");
   const elementRef = useRef(null);
 
-  const [selectedColor, setSelectedColor] = useState<string>("#197065");
+  const [selectedColor, setSelectedColor] = useState<string>("#30422E");
 
   const generatePDFOne = async (
     title,
@@ -261,7 +261,7 @@ const ViewBookCover = () => {
               <GlobelBtn
                 btnText={`${t("BookCoverCard.viewPdf")}`}
                 fontSize={{ xs: "12px", md: "16px" }}
-                border="1px solid #197065"
+                border="1px solid #30422E"
                 onClick={() =>
                   CoverNumber.toString() === "2"
                     ? generatePDFTwo(
@@ -287,11 +287,11 @@ const ViewBookCover = () => {
             <Box>
               <GlobelBtn
                 btnText={`${t("BookCoverCard.editCover")}`}
-                bgColor="#197065"
+                bgColor="#30422E"
                 borderRadius="23px"
                 color="#fff"
                 fontSize={{ xs: "12px", md: "16px" }}
-                border="1px solid #197065"
+                border="1px solid #30422E"
                 width={"180px"}
                 onClick={() => {
                   router.push(

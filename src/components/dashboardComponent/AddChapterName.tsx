@@ -45,7 +45,7 @@ const AddChapterName = ({
   return (
     <Box
       sx={{
-        backgroundColor: "#197065",
+        backgroundColor: "#30422E",
         color: "#fff",
         borderRadius: { sm: "24px", xs: "5px" },
         display: "flex",

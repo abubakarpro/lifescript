@@ -142,13 +142,13 @@ const ChaptersList = ({ listItems, selectedItems, handleItemClick }) => {
               width: "100%",
               bgcolor:
                 getIndexingIfExists(item.chapterId) !== 0
-                  ? "#197065"
+                  ? "#30422E"
                   : "#F9F9F9",
               color:
                 getIndexingIfExists(item.chapterId) !== 0 ? "white" : "black",
               borderRadius: "6.091px",
               mb: "10px",
-              borderLeft: "8.25px solid #186F65",
+              borderLeft: "8.25px solid #30422E",
             }}
           >
             <Box
@@ -194,7 +194,7 @@ const ChaptersList = ({ listItems, selectedItems, handleItemClick }) => {
 
       <Box m={"24px auto 0px"}>
         <GlobelBtn
-          bgColor="#197065"
+          bgColor="#30422E"
           color="white"
           btnText={
             !loading

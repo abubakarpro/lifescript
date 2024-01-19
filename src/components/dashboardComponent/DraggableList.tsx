@@ -54,7 +54,7 @@ const DraggableList = ({ data }) => {
                         p: "15px 29px",
                         bgcolor: "#F9F9F9",
                         borderRadius: "6.091px",
-                        borderLeft: "8.25px solid #186F65",
+                        borderLeft: "8.25px solid #30422E",
                         mb: "10px",
                       }}
                     >

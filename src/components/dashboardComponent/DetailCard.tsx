@@ -133,7 +133,7 @@ export default function DetailCard({
           >
             <Box
               sx={{
-                backgroundColor: "#197065",
+                backgroundColor: "#30422E",
                 height: { xs: "22px", sm: "32px", md: "36px" },
                 display: "flex",
                 alignItems: "center",
@@ -387,7 +387,7 @@ function CircularProgressWithLabel(props) {
         <Typography
           variant="caption"
           component="div"
-          color="#197065"
+          color="#30422E"
           sx={{ fontSize: { md: "8px", sm: "7.804px", xs: "5px" } }}
         >
           {`${Math.round(props.value)}%`}

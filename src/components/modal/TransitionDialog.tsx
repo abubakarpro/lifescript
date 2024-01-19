@@ -88,22 +88,22 @@ export default function TransitionsDialog({
               btnText={proceedText ? proceedText : `${t("modals.yes")}`}
               bgColor="#fff"
               borderRadius="23px"
-              color="#197065"
+              color="#30422E"
               width="100%"
               // fontSize={{ md: "18px", sm: "13.627px", xs: "8.542px" }}
-              // border="1px solid #197065"
+              // border="1px solid #30422E"
               onClick={proceed}
             />
           </Box>
           <Box flex={1}>
             <GlobelBtn
               btnText={cancelText ? cancelText : `${t("modals.no")}`}
-              bgColor="#197065"
+              bgColor="#30422E"
               borderRadius="23px"
               color="#fff"
               width="100%"
               // fontSize={{ md: "18px", sm: "13.627px", xs: "8.542px" }}
-              // border="1px solid #197065"
+              // border="1px solid #30422E"
               onClick={cancel}
             />
           </Box>

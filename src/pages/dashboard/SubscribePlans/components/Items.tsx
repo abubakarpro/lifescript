@@ -64,7 +64,7 @@ const Items = ({ subList, title, description }) => {
 
       <Box>
         <GlobelBtn
-          bgColor="#186F65"
+          bgColor="#30422E"
           color="white"
           btnText="Choose Plaedn"
           onClick={() => {
