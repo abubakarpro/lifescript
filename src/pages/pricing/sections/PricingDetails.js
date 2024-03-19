@@ -10,9 +10,7 @@ const PricingDetails = ({ heading, cardsDetail, marked }) => {
 
   return (
     <Box>
-      {/* <Box sx={{ width: { sm: "100%", xs: "80%", margin: "0 auto 0", bgcolor: "red" } }}> */}
       <PrimaryHeading heading={heading} marked={marked} showStyle={true} direction="column" removeStyleMbl={true} left={LeftStyle} right={RightStyle} />
-      {/* </Box> */}
       <Box sx={{ margin: { lg: "100px 0", md: "100px 20px", sm: "100px 0", xs: "70px 0 0" }, display: "flex", justifyContent: "center", flexDirection: { md: "row", sm: "column", xs: "column" }, alignItems: "center", columnGap: "16px" }}>
         {cardsDetail.map((item, index) => <DetailCard
           key={index}

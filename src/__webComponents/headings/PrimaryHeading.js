@@ -37,6 +37,7 @@ const PrimaryHeading = ({ mdDirection = "row", direction = "row", heading, showS
           fontFamily: "Besley !important",
           textAlign: "center",
           display: "flex",
+          alignItems: "center",
           flexDirection: { sm: "row", md: mdDirection, lg: "row", xs: direction },
           columnGap: { md: "15px", sm: "10px", xs: "10px" }
         }}>
