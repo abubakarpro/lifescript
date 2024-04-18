@@ -87,17 +87,17 @@ const NavBar = ({ color, logo }) => {
             fontSize: { lg: "18px", md: "17px", sm: "18px", xs: "18px" },
             fontFamily: "Avenir5",
           }}
-            className={`${pathname === '/blog' || pathname === '/blog/blogDetails' ? styles.underLine : ''}  ${styles.hoverLinks}`}
+            className={`${pathname === '/blog' || pathname === '/blog/blog-details' ? styles.underLine : ''}  ${styles.hoverLinks}`}
           >Blog</Typography>
         </Link>
 
-        <Link href="/aboutUs">
+        <Link href="/about-us">
           <Typography sx={{
             padding: { lg: ' 0 20px 10px', md: "0px 12px 10px", sm: "0 10px 20px", xs: "0 0 20px" },
             fontSize: { lg: "18px", md: "17px", sm: "18px", xs: "18px" },
             fontFamily: "Avenir5"
           }}
-            className={`${pathname === '/aboutUs' ? styles.underLine : ''}  ${styles.hoverLinks}`}
+            className={`${pathname === '/about-us' ? styles.underLine : ''}  ${styles.hoverLinks}`}
           >About Us</Typography>
         </Link>
 

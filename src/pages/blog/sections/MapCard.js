@@ -19,7 +19,7 @@ const MapCard = ({ title, date, image, details, caption, id }) => {
   const router = useRouter();
   const handleReadMoreClick = () => {
     router.push({
-      pathname: "/blog/blogDetails",
+      pathname: "/blog/blog-details",
       // query: { title, date, image, details },
       query: { id },
     });

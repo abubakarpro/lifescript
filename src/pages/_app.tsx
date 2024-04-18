@@ -27,16 +27,16 @@ export default function App({ Component, pageProps }: AppProps) {
       "/verify/verificationSent",
       "/verify",
       "/verify/forgetPassword",
-      "/homePage",
+      "/home",
       "/blog",
-      "/blog/blogDetails",
-      "/aboutUs",
+      "/blog/blog-details",
+      "/about-us",
       "/gifting",
       "/features",
       "/faqs",
       "/_auth/Auth",
-      "/termsOfUse",
-      "/privacyPolicy",
+      "/terms-of-use",
+      "/privacy-policy",
     ];
     const queryParams = new URLSearchParams(window.location.search);
     const id = queryParams.get("id");
@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
     //   currentPath !== "website/pricing" &&
     //   currentPath !== "website/homePage" &&
     //   currentPath !== "website/blog" &&
-    //   currentPath !== "website/aboutUs" &&
+    //   currentPath !== "website/about-us" &&
     //   currentPath !== "website/gifting"
     // ) {
     //   console.log("1");

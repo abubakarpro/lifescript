@@ -1,14 +1,10 @@
 "use client";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import BlogDetailPage from "./blog/blogDetails"
 
 // import WProofreaderSDK from "@webspellchecker/wproofreader-sdk-js";
-import AuthPage from "./_auth/Auth";
-import HomePage from './homePage';
-import FeaturesPage from './features';
-import GiftingPage from "./gifting"
 import Script from "next/script";
+import HomePage from './home';
 
 const inter = Inter({ subsets: ["latin"] });
 

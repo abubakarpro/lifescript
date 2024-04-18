@@ -93,7 +93,7 @@ const Footer = () => {
             >
               COMPANY
             </Typography>
-            <Link href="/aboutUs">
+            <Link href="/about-us">
               <Typography
                 sx={{ fontSize: "16px", marginBottom: "19px" }}
                 className={styles.hoverLinks}
@@ -136,7 +136,7 @@ const Footer = () => {
             >
               HELP
             </Typography>
-            <Link href="/aboutUs#ContactUs">
+            <Link href="/about-us#ContactUs">
               <Typography
                 sx={{ fontSize: "16px", marginBottom: "19px" }}
                 className={styles.hoverLinks}
@@ -152,7 +152,7 @@ const Footer = () => {
                 FAQ
               </Typography>
             </Link>
-            <Link href="/termsOfUse">
+            <Link href="/terms-of-use">
               <Typography
                 sx={{ fontSize: "16px", marginBottom: "19px" }}
                 className={styles.hoverLinks}
@@ -160,7 +160,7 @@ const Footer = () => {
                 Terms and conditions
               </Typography>
             </Link>
-            <Link href="/privacyPolicy">
+            <Link href="/privacy-policy">
               <Typography
                 sx={{ fontSize: "16px" }}
                 className={styles.hoverLinks}

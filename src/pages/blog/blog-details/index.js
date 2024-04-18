@@ -1,20 +1,19 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
-import GifTab from "../../homePage/sections/GifTab";
-import NavBar from "@/__webComponents/navBar/NavBar";
-import styles from "../sections/BlogSection.module.css";
-import Logo from "@/__webAssets/svgs/lifescript-life-story-book-logo.svg";
-import Image from "next/image";
-import BlogImage from "@/__webAssets/pngs/blog-img.png";
 import Back from "@/__webAssets/svgs/back-aero.svg";
-import BlogDetails from "../sections/BlogDetails";
-import Footer from "@/__webComponents/footer/Footer";
+import Logo from "@/__webAssets/svgs/lifescript-life-story-book-logo.svg";
 import Pen from "@/__webAssets/svgs/writing-pen.svg";
+import Footer from "@/__webComponents/footer/Footer";
+import NavBar from "@/__webComponents/navBar/NavBar";
+import { Box, Typography } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Circles } from "react-loader-spinner";
+import GifTab from "../../home/sections/GifTab";
+import BlogDetails from "../sections/BlogDetails";
+import styles from "../sections/BlogSection.module.css";
 
 const BlogDetailPage = () => {
   const router = useRouter();
