@@ -5,7 +5,12 @@ import Image from 'next/image';
 import stripeLogo from "../../../../../public/stripeLogo.svg";
 import CheckIcon from '@mui/icons-material/Check';
 import { useRouter } from "next/router";
-const PurchaseForm = () => {
+
+interface PurchaseFormProps {
+    selectedTab: any;
+    onClick: (index: any) => void;
+  }
+const PurchaseForm: React.FC<PurchaseFormProps> = ({ selectedTab, onClick }) => {
     const router = useRouter();
     const { price, category } = router.query;
 

@@ -140,8 +140,7 @@ const StripePage = () => {
                     backgroundColor="#E1693B"
                     title={"Continue"}
                     bgHover="#B5522D"
-                    onClick={handleContinue}
-                  />
+                    onClick={handleContinue} img1={undefined} img2={undefined} borderRadius={undefined}                  />
                 </Box>
               )}
             </FormControl>
@@ -216,8 +215,7 @@ const StripePage = () => {
                     backgroundColor="#E1693B"
                     title={"Continue"}
                     bgHover="#B5522D"
-                    onClick={handleContinueNext}
-                  />
+                    onClick={handleContinueNext} img1={undefined} img2={undefined} borderRadius={undefined}                  />
                 </Box>
               </FormControl>
             )}

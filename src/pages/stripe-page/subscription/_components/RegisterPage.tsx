@@ -19,7 +19,12 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-const RegisterPage = ({ onClick, selectedTab }) => {
+interface RegisterPageProps {
+  selectedTab: any;
+  onClick: (index: any) => void;
+}
+
+const RegisterPage: React.FC<RegisterPageProps> = ({ selectedTab, onClick }) => {
   const dispatch: any = useDispatch();
   const { data: session } = useSession();
 

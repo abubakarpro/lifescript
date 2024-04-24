@@ -3,23 +3,24 @@ import Logo from "@/_assets/svg/logo-dashboard.svg";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import PurchaseForm from "./_components/PurchaseForm";
-import RegisterPage from "./_components/RegisterPage";
-import TabPanel from "./_components/TabPanel";
-import NewTabBar from "./_components/NewTabBar";
+import PurchaseForm from "../subscription/_components/PurchaseForm";
+import RegisterPage from "../subscription/_components/RegisterPage";
 import { useSession } from "next-auth/react";
 import { facebookLogin } from "@/store/slices/authSlice";
 import { useDispatch } from "react-redux";
+import GiftTabPanel from "./_components/GiftTabPanel";
+import GiftTabBar from "./_components/GiftTabBar";
+import DeliveryForm from "./_components/DeliveryForm";
 
-const SubscriptionPage = () => {
-  const dispatch = useDispatch();
+const GiftSubscriptionPage = () => {
+  const dispatch:any = useDispatch();
   const [selectedTab, setSelectedTab] = useState(0);
   const { data: session } = useSession();
 
   useEffect(() => {
     if (session) {
       if (session.user) {
-        setSelectedTab(2);
+        setSelectedTab(3);
         const payload = {
           name: session.user.name,
           email: session.user.email
@@ -35,8 +36,9 @@ const SubscriptionPage = () => {
 
   const tabsData = [
     { label: "CHOOSE PLAN", active: selectedTab === 0 },
-    { label: "REGISTER", active: selectedTab === 1 && !session },
-    { label: "PAYMENT", active: selectedTab === 2 }
+    { label: "DELIVERY", active: selectedTab === 1 },
+    { label: "REGISTER", active: selectedTab === 2 && !session },
+    { label: "PAYMENT", active: selectedTab === 3 }
   ];
 
   return (
@@ -65,20 +67,23 @@ const SubscriptionPage = () => {
           alignItems: "center",
           width: "100%",
           marginTop: "30px",
-          marginLeft: "80px"
+          marginLeft: "100px"
         }}>
-          <NewTabBar tabs={tabsData} onClick={handleTabClick} />
+          <GiftTabBar tabs={tabsData} onClick={handleTabClick} />
         </Box>
 
         <Box>
           <Box mt="15px">
             {selectedTab === 0 && (
-              <TabPanel selectedTab={selectedTab} onClick={handleTabClick} />
+              <GiftTabPanel selectedTab={selectedTab} onClick={handleTabClick} />
             )}
-            {selectedTab === 1 && !session && (
+            {selectedTab === 1 && (
+              <DeliveryForm selectedTab={selectedTab} onClick={handleTabClick} />
+            )}
+            {selectedTab === 2 && !session && (
               <RegisterPage selectedTab={selectedTab} onClick={handleTabClick} />
             )}
-            {selectedTab === 2 && (
+            {selectedTab === 3 && (
               <PurchaseForm selectedTab={selectedTab} onClick={handleTabClick} />
             )}
           </Box>
@@ -88,4 +93,4 @@ const SubscriptionPage = () => {
   );
 };
 
-export default SubscriptionPage;
+export default GiftSubscriptionPage;

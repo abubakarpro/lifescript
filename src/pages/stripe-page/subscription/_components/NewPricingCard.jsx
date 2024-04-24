@@ -179,14 +179,13 @@ const NewPricingCard = ({ price, category, card, id, handleHover }) => {
       </Box>
       <Box sx={{ position: "absolute", bottom: "0", left: "0", right: "0" }}>
           <Button
-            title='Get Started'
-            width='100%'
-            height='75px'
-            font="24px"
-            borderRadius="0px 0px 8px 8px"
-            img2={NextIcon}
-            onClick={() => handleButtonClick()}
-          />
+          title='Get Started'
+          width='100%'
+          height='75px'
+          font="24px"
+          borderRadius="0px 0px 8px 8px"
+          img2={NextIcon}
+          onClick={() => handleButtonClick()} img1={undefined} backgroundColor={undefined} bgHover={undefined}          />
       </Box>
     </Box >
   )

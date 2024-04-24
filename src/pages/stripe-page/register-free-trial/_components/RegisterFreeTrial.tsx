@@ -22,7 +22,7 @@ const RegisterFreeTrial = () => {
     const router = useRouter();
     const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  const dispatch:any = useDispatch();
   const { data: session } = useSession();
   console.log("Session Check ",session)
 

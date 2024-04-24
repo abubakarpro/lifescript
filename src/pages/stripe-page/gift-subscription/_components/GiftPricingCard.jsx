@@ -1,13 +1,13 @@
 "use client"
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import styles from '../../../../__webComponents/ComponentsStyles.module.css'
+import styles from '../../../../__webComponents/ComponentsStyles.module.css';
 // import Button from "../button/Button";
 import Button from "../../../../__webComponents/button/Button";
 
-import Check from "@/__webAssets/svgs/check.svg"
-import Lock from "@/__webAssets/svgs/lock.svg"
-import NextIcon from '@/__webAssets/svgs/next.svg'
+import Check from "@/__webAssets/svgs/check.svg";
+import Lock from "@/__webAssets/svgs/lock.svg";
+import NextIcon from '@/__webAssets/svgs/next.svg';
 
 import { useRouter } from 'next/router';
 
@@ -75,20 +75,22 @@ const GiftPricingCard = ({ price, category, card, id, handleHover }) => {
 
   const handleButtonClick = () => {
     router.push({
-      pathname: '/stripe-page/gift-subscription', 
-      query: { price, category }, 
+      pathname: '/stripe-page/gift-subscription',
+      query: { price, category },
     });
   };
 
   return (
-    <Box sx={{
-      borderRadius: "8px",
-      width: { sm: "350px", xs: "340px" },
-      height: { lg: "700px" },
-      position: "relative",
-      margin:"20px"
+    <>
+    <Box
+      sx={{
+        borderRadius: "8px",
+        width: { sm: "350px", xs: "340px" },
+        height: { lg: "700px" },
+        position: "relative",
+        margin: "20px"
 
-    }}
+      }}
       backgroundColor={card == "2" ? "#30422E" : "#F4F4F4"}
       color={card == "2" && "#f4f4f4"}
       id={id}
@@ -178,17 +180,18 @@ const GiftPricingCard = ({ price, category, card, id, handleHover }) => {
         }
       </Box>
       <Box sx={{ position: "absolute", bottom: "0", left: "0", right: "0" }}>
-          <Button
-            title='Get Started'
-            width='100%'
-            height='75px'
-            font="24px"
-            borderRadius="0px 0px 8px 8px"
-            img2={NextIcon}
-            onClick={() => handleButtonClick()}
-          />
+        <Button
+          title='Get Started'
+          width='100%'
+          height='75px'
+          font="24px"
+          borderRadius="0px 0px 8px 8px"
+          img2={NextIcon}
+          onClick={() => handleButtonClick()} img1={undefined} backgroundColor={undefined} bgHover={undefined} />
       </Box>
     </Box >
+    </>
+    
   )
 }
 

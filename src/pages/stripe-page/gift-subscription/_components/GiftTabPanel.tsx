@@ -34,7 +34,7 @@ const GiftTabPanel = ({onClick,selectedTab}) => {
     //   margin: { lg: '170px 95px  130px', sm: "150px 30px", xs: "80px 20px 100px" },
     }}>
   <Box>
-          <PrimaryHeading heading="Choose a Subscription Plan" />
+          <PrimaryHeading heading="Choose a Subscription Plan" showStyle={undefined} color={undefined} lineHeight={undefined} lineWidth={undefined} marked={undefined} />
 
           <Box
             sx={{
