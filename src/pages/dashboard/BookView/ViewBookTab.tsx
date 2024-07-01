@@ -17,10 +17,10 @@ const ReviewInterior = ({ setSelectedTab, interior }) => {
     <Box>
       <Box
         sx={{
-          p: "30px 28px",
+          p: {lg:"30px 28px"},
           bgcolor: "#F3ECDA",
           borderRadius: "4",
-          height: "750px",
+          height: {lg:"740px" , sm:"100%"},
           mt: "50px"
         }}
       >

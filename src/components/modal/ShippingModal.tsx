@@ -15,18 +15,18 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { xs: "100%", sm: "90%", md: "70%", lg: "60%" },
+  width: { xs: "100%", sm: "75%", md: "60%", lg: "55%",xl:"30%" },
   bgcolor: "#F3ECDA",
   border: "2px solid #F3ECDA",
   p: 4,
-  color: "gray",
+  color: "#34022E",
 };
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function ShippingModal({ open, setOpen, setSelectedTab }) {
   const { t } = useTranslation();
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = React.useState(false);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -38,6 +38,7 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
   };
   const handleClose = () => {
     setOpen(false);
+    setChecked(false)
   };
 
   return (
@@ -52,7 +53,9 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
           <Typography
             sx={{
               color: "#30422E",
-              fontSize: { xs: "13px", sm: "15px", lg: "25px" },
+              fontSize: { xs: "13px", sm: "18px", lg: "25px" },
+              fontWeight: "bold",
+              
             }}
           >
             {t("shippingModal.title")}
@@ -60,13 +63,13 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
           <Typography
             sx={{
               mt: 2,
-              fontSize: { xs: "10px", sm: "12px", md: "15px", lg: "17px" },
+              fontSize: { xs: "10px", sm: "13px", md: "15px", lg: "17px" },
             }}
           >
             {t("shippingModal.info")}
           </Typography>
           <Typography
-            sx={{ mt: 2, fontSize: { xs: "10px", sm: "12px", lg: "17px" } }}
+            sx={{ mt: 2, fontSize: { xs: "10px", sm: "13px", lg: "17px" } }}
             variant="body1"
           >
             {t("shippingModal.info2")}
@@ -105,7 +108,7 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
                 >
                   <ListItemIcon sx={{ minWidth: "30px" }}>
                     <FiberManualRecordIcon
-                      style={{ fontSize: 10, color: "gray" }}
+                      style={{ fontSize: 10, color: "#34022E" }}
                     />
                   </ListItemIcon>
                   <ListItemText
@@ -119,8 +122,9 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
                       >
                         <Typography
                           sx={{
-                            fontSize: { xs: "8px", sm: "10px", lg: "17px" },
+                            fontSize: { xs: "8px", sm: "13px", lg: "18px" },
                             fontWeight: "bold",
+                            
                           }}
                         >
                           {item.title}
@@ -129,7 +133,7 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
                           ml={"5px"}
                           variant="body1"
                           sx={{
-                            fontSize: { xs: "8px", sm: "10px", lg: "17px" },
+                            fontSize: { xs: "8px", sm: "12px", lg: "17px" },
                           }}
                         >
                           {item.description}
@@ -152,18 +156,17 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
             sx={{
               mt: 3,
               width: "100%",
-              border: "1px solid gray",
+              border: "1px solid #34022E",
               borderRadius: "6px",
               display: "flex",
               alignItems: "center",
-              padding: "4px",
-              
+              padding: {xs:"2px",sm:"2px",md:"2px",lg:"4px",xl:"4px"}
             }}
           >
             <FormControlLabel
               label={<Typography
                 onClick={handleChange}
-                sx={{ fontSize: { xs: "10px", sm: "12px", lg: "17px" } }}
+                sx={{ fontSize: { xs: "10px", sm: "12enhancement/modal-popuppx", lg: "17px" } }}
               >
                 {t("shippingModal.info4")}
               </Typography>}

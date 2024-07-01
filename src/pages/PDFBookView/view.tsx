@@ -1,15 +1,20 @@
 import NextIcon from "@/_assets/svg/next-iconX.svg";
 import PreviousIcon from "@/_assets/svg/previous-icon.svg";
-import { Box, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { default as GlobelBtn } from "@/components/button/Button";
 import SaveIcon from "@/_assets/svg/save-response-white-icon.svg";
 import debounce from "lodash/debounce";
-import ZoomIn from "@/_assets/svg/zoomin.svg"
-import ZoomOut from "@/_assets/svg/zoom-out.svg"
+import ZoomIn from "@/_assets/svg/zoomin.svg";
+import ZoomOut from "@/_assets/svg/zoom-out.svg";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -17,8 +22,13 @@ interface PDFViewerProps {
   pdfUrl: string;
 }
 
-
 const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
+  const theme = useTheme();
+  const lg = useMediaQuery(theme.breakpoints.up("lg"));
+  const md = useMediaQuery(theme.breakpoints.up("md"));
+  const sm = useMediaQuery(theme.breakpoints.down("sm"));
+  const xs = useMediaQuery(theme.breakpoints.down("xs"));
+
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -27,17 +37,12 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
   const [goToPageNumber, setGoToPageNumber] = useState("1");
   const [scale, setScale] = useState(1.0);
 
-  let zoomValue = scale;
-
-
   const changeScale = useCallback(
     debounce((offset: number) => {
-
       setScale(offset);
     }, 300),
     []
   );
-
 
   useEffect(() => {
     if (numPages === 0) {
@@ -46,20 +51,18 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
   }, [numPages]);
 
   const onPageLoadSuccess = (page) => {
-    // Calculate the scale based on desired dimensions
     const originalPageWidth = page.originalWidth;
     const originalPageHeight = page.originalHeight;
-
-    const scaleX = 450 / originalPageWidth;
-    const scaleY = 550 / originalPageHeight;
-
+    const value = lg ? 470 : sm ? 350 : xs ? 300 : 470;
+    const value2 = lg ? 550 : sm ? 300 : xs ? 300 : 550;
+    const scaleX = value / originalPageWidth;
+    const scaleY = value2 / originalPageHeight;
     const scale = Math.min(scaleX, scaleY);
 
     setPageWidth(originalPageWidth * scale);
     setPageHeight(originalPageHeight * scale);
     setLoading(false);
   };
-
 
   const options = {
     cMapUrl: "cmaps/",
@@ -86,16 +89,14 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
           gap: { sm: "10px", xs: "5px" },
           mt: "2px",
           mb: "20px",
-          justifyContent: { sm: "flex-end", xs: "flex-start" },
+          justifyContent: { sm: "flex-end", xs: "center" },
           flexWrap: "wrap",
         }}
       >
         <Box sx={{ mr: "-20px" }}>
-
           <ButtonIcons
             onClick={() => {
-              zoomValue = zoomValue - 0.1;
-              changeScale(zoomValue)
+              changeScale(scale - 0.1);
             }}
             disabled={scale <= 1}
             img={ZoomOut}
@@ -105,15 +106,12 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
 
         <ButtonIcons
           onClick={() => {
-            zoomValue = zoomValue + 0.1;
-            changeScale(zoomValue)
+            changeScale(scale + 0.1);
           }}
           disabled={scale >= 2.0}
           img={ZoomIn}
           iconSize={35}
         />
-
-
 
         <GlobelBtn
           bgColor="#E1683B"
@@ -126,15 +124,9 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
         />
       </Box>
 
-
-
-      <Box hidden={false} sx={{ height: "100%", position: "relative" }}>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <Box
-            sx={{
-              mr: "30px"
-            }}
-          >
+      <Box hidden={false}>
+        <Box display="flex" justifyContent={{lg:"center",xs:"center"} }alignItems="center">
+          <Box>
             <Button
               onClick={() => setPageNumber(pageNumber - 1)}
               disabled={pageNumber <= 1}
@@ -145,7 +137,15 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
             </Button>
           </Box>
 
-          <Box sx={{ overflow: 'scroll', border: '1px solid #ddd', height: '550px', width: "auto", maxWidth: "400px", display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              overflow: "scroll",
+              border: "1px solid #ddd",
+              width: { pageWidth },
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <Document
               file={pdfUrl}
               onLoadSuccess={onDocumentLoadSuccess}
@@ -167,11 +167,8 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
             </Document>
           </Box>
 
-
           <Box
-            sx={{
-              ml: "30px"
-            }}
+            
           >
             <Button
               onClick={() => setPageNumber(pageNumber + 1)}
@@ -182,9 +179,8 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
               <Image alt="icon" src={NextIcon} />
             </Button>
           </Box>
-
-
         </Box>
+
         <Box
           sx={{
             display: "flex",
@@ -220,14 +216,7 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
   );
 };
 
-
-
 export default PDFViewer;
-
-
-
-
-
 
 export const ButtonIcons = ({ onClick, iconSize, img, disabled }) => {
   return (
@@ -236,19 +225,16 @@ export const ButtonIcons = ({ onClick, iconSize, img, disabled }) => {
       disabled={disabled}
       sx={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: {lg:"center'"},
         alignItems: "center",
-        columnGap: "8px",
-        '&:hover': {
-          backgroundColor: 'transparent',
-          boxShadow: 'none',
+        columnGap: {lg:"8px"},
+        "&:hover": {
+          backgroundColor: "transparent",
+          boxShadow: "none",
         },
-      }}>
-      <Image
-        src={img}
-        alt="icon"
-        width={iconSize}
-      />
+      }}
+    >
+      <Image src={img} alt="icon" width={iconSize} />
     </Button>
-  )
-}
+  );
+};
