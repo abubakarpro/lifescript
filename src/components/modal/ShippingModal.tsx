@@ -166,7 +166,7 @@ export default function ShippingModal({ open, setOpen, setSelectedTab }) {
             <FormControlLabel
               label={<Typography
                 onClick={handleChange}
-                sx={{ fontSize: { xs: "10px", sm: "12enhancement/modal-popuppx", lg: "17px" } }}
+                sx={{ fontSize: { xs: "10px", sm: "12px", lg: "17px" } }}
               >
                 {t("shippingModal.info4")}
               </Typography>}
