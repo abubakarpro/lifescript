@@ -7,11 +7,6 @@ export default function Document() {
       <Head>
         <title>LifeScript</title>
 
-        {/* <meta
-          name="description"
-          content="Turn your stories into a beautiful hardcover book to preserve memories and connect with family or gift this unparalleled experience to your mom, dad or grandparent. "
-        /> */}
-
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{

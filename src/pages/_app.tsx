@@ -54,101 +54,26 @@ export default function App({ Component, pageProps }: AppProps) {
       "/stripe-page/sso-redirecting",
       "/_auth/fb-redirecting",
     ];
-    // https://www.thelifescript.com/change-password?token=U2FsdGVkX18qqtr5TmL8yLSfoVYggs+I2iZZM1rfwh24YJ+eMujLug49LPJOKasGxd0yBxTzr1U4ZGu75e1NI1idlJZ3hLRToj8aoEMCFQReE/iR/boX2kbyVjbtHroL
-
-    // new1 code
-    // const queryParams = new URLSearchParams(window.location.search);
-    //     const id = queryParams.get("id");
-    //     if (currentPath.startsWith("/verify") && userLoggedIn) {
-    //       // If it's a /verify route with a token parameter, continue regardless of login status
-    //       setLoading(false);
-    //       return; // No need to redirect further
-    //     }
-    //     if (publicRoutes.includes(currentPath) || currentPath === "/") {
-    //       if (!userLoggedIn || currentPath === "/?via=install") {
-    //         id ? router.push(`${currentPath}?id=${id}`) : router.push(currentPath);
-    //         setLoading(false);
-    //       }
-    //       // else router.push("/dashboard/chapters");
-    //       // setLoading(false);
-    //       // } else {
-    //       //   if (!userLoggedIn) {
-    //       //     router.push("/");
-    //       //   }
-    //       //   setLoading(false);
-    //       setLoading(false);
-    //     }
-
-    //New Code:
-    // const queryParams = new URLSearchParams(window.location.search)
-    // const id = queryParams.get("id");
-    // const viaInstall = queryParams.get("via") === "install"; // Check if 'via' parameter is 'install'
-
-    // if (currentPath.startsWith("/verify") && userLoggedIn) {
-    //   // If it's a /verify route with a token parameter, continue regardless of login status
-    //   setLoading(false);
-    //   return; // No need to redirect further
-    // }
-
-    // // Check if the current path matches any of the public routes
-    // if (publicRoutes.some((route) => {
-    //   // If the route includes '?via=install', check if 'via' parameter is 'install'
-    //   if (route.includes("?via=install")) {
-    //     return currentPath === route.split("?")[0] && viaInstall;
-    //   }
-    //   // Otherwise, check for a direct match
-    //   return route.includes(currentPath);
-    // })) {
-    //   if (!userLoggedIn) {
-    //     id ? router.push(`${currentPath}?id=${id}`) : router.push(currentPath);
-    //   } else {
-    //     router.push("/dashboard/chapters");
-    //   }
-    //   setLoading(false);
-    // } else if (currentPath === "/" && userLoggedIn) {
-    //   router.push("/dashboard/chapters");
-    // } else {
-    //   if (!userLoggedIn) {
-    //     router.push("/");
-    //   }
-    //   setLoading(false);
-    // }
-    //old code
+   
     const queryParams = new URLSearchParams(window.location.search);
     const id = queryParams.get("id");
-
-
-    // if (window.location.search.includes(`/verify?token=${token}`)) {
-
-    //   setLoading(false);
-    //   return; // Don't redirect if "?via=install" is present
-    // }
 
     if (window.location.search.includes("?via=install")) {
       setLoading(false);
       return; // Don't redirect if "?via=install" is present
     }
-
-    // if (currentPath.startsWith("/verify") && userLoggedIn) {
-    //   // If it's a /verify route with a token parameter, continue regardless of login status
-    //   setLoading(false);
-    //   return; // No need to redirect further
-    // }
     if (currentPath.startsWith("/verify")) {
       const token = queryParams.get("token");
       if (token) {
         setLoading(false);
         return;
       }
-      // If it's a /verify route with a token parameter, continue regardless of login status
-      // No need to redirect further
+
     }
     if (publicRoutes.some((route) => route.includes(currentPath))) {
       if (!userLoggedIn)
         id ? router.push(`${currentPath}?id=${id}`) : router.push(currentPath);
       else if (currentPath === "/stripe-page/gift-subscription") {
-        // Handle the case when user is logged in and accessing gift-subscription page
-        // Here you can decide whether to redirect or not based on your requirements
         setLoading(false);
       } else router.push("/dashboard/chapters");
       setLoading(false);
@@ -160,34 +85,6 @@ export default function App({ Component, pageProps }: AppProps) {
       }
       setLoading(false);
     }
-
-    // if (
-    //   !userLoggedIn &&
-    //   userLoggedIn !== "undefined" &&
-    //   currentPath !== "/verify/verificationSent" &&
-    //   currentPath !== "/verify" &&
-    //   currentPath !== "/verify/forgetPassword" &&
-    //   currentPath !== "website/pricing" &&
-    //   currentPath !== "website/homePage" &&
-    //   currentPath !== "website/blog" &&
-    //   currentPath !== "website/about-us" &&
-    //   currentPath !== "website/gifting"
-    // ) {
-
-    //   // router.push("/");
-    //   setLoading(false);
-    // } else if (currentPath == "/") {
-
-    //   setTimeout(() => {
-    //     setLoading(false);
-    //     router.push("/dashboard/chapters");
-    //   }, 1000);
-    //   // router.push("/dashboard/chapters");
-    // } else {
-
-    //   setLoading(false);
-    //   // router.push("/dashboard/chapters");
-    // }
   }, [currentPath]);
 
   const [showCookieBar, setShowCookieBar] = useState(true);
