@@ -28,7 +28,9 @@ import {
   updateBookCover,
   uploadImage,
 } from "@/store/slices/chatSlice";
+import { onCrop } from "./helper";
 
+// useMemo,useCallback,Memo,useLayoutEffect
 
 const EditBookCover = () => {
   const router = useRouter();
@@ -56,25 +58,29 @@ const EditBookCover = () => {
     [key: string]: string[];
   }>({});
 
-  const onCrop = async () => {
-    if (cropperRef.current?.cropper) {
-      const croppedCanvas: any = cropperRef.current.cropper.getCroppedCanvas();
+  const handleCrop = () => {
+    return onCrop(cropperRef,setCropper);
+  }
 
-      const croppedImageBase64 = croppedCanvas.toDataURL();
+  // const onCrop = async () => {
+  //   if (cropperRef.current?.cropper) {
+  //     const croppedCanvas: any = cropperRef.current.cropper.getCroppedCanvas();
+
+  //     const croppedImageBase64 = croppedCanvas.toDataURL();
 
 
-      const coverImageElement = document.getElementById(
-        "coverImage"
-      ) as HTMLImageElement;
+  //     const coverImageElement = document.getElementById(
+  //       "coverImage"
+  //     ) as HTMLImageElement;
 
-      if (coverImageElement) {
-        coverImageElement.setAttribute("xlink:href", croppedImageBase64);
-      }
+  //     if (coverImageElement) {
+  //       coverImageElement.setAttribute("xlink:href", croppedImageBase64);
+  //     }
 
-      setCropper(croppedImageBase64);
-      return croppedImageBase64;
-    }
-  };
+  //     setCropper(croppedImageBase64);
+  //     return croppedImageBase64;
+  //   }
+  // };
 
   useEffect(() => {
     const statesToFetch = [
@@ -278,12 +284,6 @@ const EditBookCover = () => {
     }
   };
 
-  const handleBylineChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value.length <= 25) {
-      setByline(event.target.value);
-    }
-  };
-
   useEffect(() => {
     !selectedColor && setSelectedColor("#197065");
   }, [selectedColor]);
@@ -388,9 +388,6 @@ const EditBookCover = () => {
       const canvas = document.createElement("canvas");
       const context = canvas.getContext("2d");
 
-
-
-      // const img = new Image(0, 0);
       const img = document.createElement("img");
       img.onload = () => {
         canvas.width = img.width;
@@ -619,7 +616,7 @@ const EditBookCover = () => {
                         guides={false}
                         dragMode="move"
                         onInitialized={(instance) => setCropper(instance)}
-                        crop={onCrop}
+                        crop={handleCrop}
                         autoCropArea={1}
                         responsive={true}
                         cropBoxResizable={false}
@@ -637,7 +634,7 @@ const EditBookCover = () => {
                         guides={false}
                         dragMode="move"
                         onInitialized={(instance) => setCropper(instance)}
-                        crop={onCrop}
+                        crop={handleCrop}
                         autoCropArea={1}
                         responsive={true}
                         cropBoxResizable={false}
@@ -657,7 +654,7 @@ const EditBookCover = () => {
                         guides={false}
                         dragMode="move"
                         onInitialized={(instance) => setCropper(instance)}
-                        crop={onCrop}
+                        crop={handleCrop}
                         autoCropArea={1}
                         responsive={true}
                         cropBoxResizable={false}
@@ -677,7 +674,7 @@ const EditBookCover = () => {
                         guides={false}
                         dragMode="move"
                         onInitialized={(instance) => setCropper(instance)}
-                        crop={onCrop}
+                        crop={handleCrop}
                         autoCropArea={1}
                         responsive={true}
                         cropBoxResizable={false}
@@ -697,7 +694,7 @@ const EditBookCover = () => {
                         guides={false}
                         dragMode="move"
                         onInitialized={(instance) => setCropper(instance)}
-                        crop={onCrop}
+                        crop={handleCrop}
                         autoCropArea={1}
                         responsive={true}
                         cropBoxResizable={false}
@@ -715,7 +712,7 @@ const EditBookCover = () => {
                         guides={false}
                         dragMode="move"
                         onInitialized={(instance) => setCropper(instance)}
-                        crop={onCrop}
+                        crop={handleCrop}
                         autoCropArea={1}
                         responsive={true}
                         cropBoxResizable={false}
