@@ -210,10 +210,10 @@ const ViewBookCover = () => {
     const newData = { imageUrl: finalCover };
     console.log(finalCover, "Final Cover");
 
-    const resp = await appendImageToFormData(finalCover)
-    console.log("resp", resp)
-    const newImageLink = await dispatch(uploadImageForCover(resp));
-    console.log(newImageLink, "new Image link");
+    // const resp = await appendImageToFormData(finalCover)
+    // console.log("resp", resp)
+    // const newImageLink = await dispatch(uploadImageForCover(resp));
+    // console.log(newImageLink, "new Image link");
 
     // const newImageLink = await dispatch(uploadImageWithCloudinary(newData));
 
@@ -223,7 +223,7 @@ const ViewBookCover = () => {
       const imageY = 0;
 
       pdf.addImage(
-        newImageLink.payload,
+        finalCover,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         imageY,
@@ -236,7 +236,7 @@ const ViewBookCover = () => {
       const imageY = 0;
 
       pdf.addImage(
-        newImageLink.payload,
+        finalCover,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         imageY,
@@ -250,7 +250,7 @@ const ViewBookCover = () => {
       const imageY = 14;
 
       pdf.addImage(
-        newImageLink.payload,
+        finalCover,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         imageY,
@@ -260,7 +260,7 @@ const ViewBookCover = () => {
     }
     else {
       pdf.addImage(
-        newImageLink.payload,
+        finalCover,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         offset,

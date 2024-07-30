@@ -202,8 +202,8 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
     const newImage = coverData && coverData?.coverPagePhoto;
 
     const newData = { imageUrl: newImage };
-    const resp = await appendImageToFormData(newImage)
-    const newImageLink = await dispatch(uploadImageForCover(resp));
+    // const resp = await appendImageToFormData(newImage)
+    // const newImageLink = await dispatch(uploadImageForCover(resp));
 
     // const newImageLink = await dispatch(uploadImageWithCloudinary(newData));
 
@@ -213,7 +213,7 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
       const imageY = 0;
 
       pdf.addImage(
-        newImageLink.payload,
+        newImage,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         imageY,
@@ -226,7 +226,7 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
       const imageY = 0;
 
       pdf.addImage(
-        newImageLink.payload,
+        newImage,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         imageY,
@@ -239,7 +239,7 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
       const imageY = 14;
 
       pdf.addImage(
-        newImageLink.payload,
+        newImage,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         imageY,
@@ -248,7 +248,7 @@ const BookCoverTab = ({ setSelectedTab, pages }) => {
       );
     } else {
       pdf.addImage(
-        newImageLink.payload,
+        newImage,
         "png",
         offset + leftContentWidth + gutterWidth + spineWidth + gutterWidth,
         offset,
