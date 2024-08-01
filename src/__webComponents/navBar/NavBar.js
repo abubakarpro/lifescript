@@ -8,12 +8,15 @@ import NextIcon from "@/__webAssets/svgs/next.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import LanguageOption from "./Language";
+import { useState, useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
+
 
 import Menu from "@/__webAssets/svgs/mobile-menu.svg";
 import MenuW from "@/__webAssets/svgs/mobile-menu-white.svg";
 import { useTranslation } from "react-i18next";
+
+const LanguageOption = dynamic(() => import("./Language"), { ssr: false });
 const NavBar = ({ color, logo }) => {
   const { t } = useTranslation();
   const [mobileState, setMobileState] = useState(false);
@@ -28,18 +31,17 @@ const NavBar = ({ color, logo }) => {
     );
   }, []);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (() => {
     if (userLoggedIn) {
       router.push("/dashboard/chapters");
     } else {
       router.push("/_auth/Auth");
     }
-  };
+  }, [userLoggedIn, router]);
 
-  function handleMenu() {
-    setMobileState((pre) => !pre);
-  }
-
+  const handleMenu = useCallback(() => {
+    setMobileState(prev => !prev);
+  }, []);
   return (
     <Box
       sx={{

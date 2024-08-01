@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import i18n from "i18next";
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import styles from "./NavBar.module.css";
 
 const CustomDropdownIcon = (props) => {
@@ -33,19 +33,20 @@ export default function SelectLabels() {
   }, []);
 
 
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setSelectedValue(value);
-    changeLanguage(value === 10 ? "en" : "sp");
-  };
+
+    const handleChange = useCallback((event) => {
+      const value = event.target.value;
+      setSelectedValue(value);
+      changeLanguage(value === 10 ? "en" : "sp");
+    }, []);
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
 
-  const renderValue = (value) => {
+  const renderValue = useMemo(() => (value) => {
     return value === 10 ? "EN" : "ES";
-  };
+  }, []);
 
   return (
     <Box sx={{ position: "relative"}}>

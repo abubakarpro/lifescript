@@ -1,50 +1,92 @@
 'use client'
 
-import Button from "@/__webComponents/button/Button";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-import Typed from "typed.js";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import styles from "./HomeSections.module.css";
-
-import Pen from "@/__webAssets/svgs/writing-pen.svg";
-// import Image3 from "@/__webAssets/webp/heroImages/children-dancing-and-having-fun-with-bubbles-on-vintage-photograph.webp";
-// import Image4 from "@/__webAssets/webp/heroImages/grandma-and-grandpa-laughing-and-eating-ice cream-happy-memories.webp";
-// import Image1 from "@/__webAssets/webp/heroImages/lifescript-happy-mom-and-dad-storytelling-to-children-on-the-beach.webp";
-// import Image2 from "@/__webAssets/webp/heroImages/lifescript-kid-having-fun-with-a-cat-in-vintage-photograph-memories.webp";
-// import Book from "@/__webAssets/webp/heroImages/old-opened-autobiography-book.webp";
 import { useTranslation } from "react-i18next";
 
-const Image1 = "https://lifescript-media.s3.eu-north-1.amazonaws.com/lifescript-happy-mom-and-dad-storytelling-to-children-on-the-beach.webp"
-const Book = "https://lifescript-media.s3.eu-north-1.amazonaws.com/old-opened-autobiography-book.webp"
-const Image4 = "https://lifescript-media.s3.eu-north-1.amazonaws.com/grandma-and-grandpa-laughing-and-eating-ice+cream-happy-memories.webp"
-const Image3 = "https://lifescript-media.s3.eu-north-1.amazonaws.com/children-dancing-and-having-fun-with-bubbles-on-vintage-photograph.webp"
-const Image2 = "https://lifescript-media.s3.eu-north-1.amazonaws.com/lifescript-kid-having-fun-with-a-cat-in-vintage-photograph-memories.webp"
+import Pen from "@/__webAssets/svgs/writing-pen.svg";
+
+const Button = dynamic(() => import('@/__webComponents/button/Button'), { ssr: false });
+
+const images = [
+  {
+    src: 'https://lifescript-media.s3.eu-north-1.amazonaws.com/lifescript-happy-mom-and-dad-storytelling-to-children-on-the-beach.webp',
+    alt: 'Mom with dad and their two daughters having fun on the beach with stories about their lifes - LifeScript',
+    className: styles.image1,
+    width: 260,
+    height: 290,
+  },
+  {
+    src: 'https://lifescript-media.s3.eu-north-1.amazonaws.com/children-dancing-and-having-fun-with-bubbles-on-vintage-photograph.webp',
+    alt: 'Children dancing and having fun with bubbles on a vintage photograph - LifeScript',
+    className: styles.image3,
+    width: 275,
+    height: 330,
+  },
+  {
+    src: 'https://lifescript-media.s3.eu-north-1.amazonaws.com/lifescript-kid-having-fun-with-a-cat-in-vintage-photograph-memories.webp',
+    alt: 'childhood memories with a vintage photograph of a kid having a laugh with a small kitten - LifeScript',
+    className: styles.image2,
+    width: 225,
+    height: 245,
+  },
+  {
+    src: 'https://lifescript-media.s3.eu-north-1.amazonaws.com/grandma-and-grandpa-laughing-and-eating-ice+cream-happy-memories.webp',
+    alt: 'Grandma and Grandpa eating ice cream and having fun reflecting on their life journey - LifeScript',
+    className: styles.image4,
+    width: 322,
+    height: 290,
+  },
+  {
+    src: 'https://lifescript-media.s3.eu-north-1.amazonaws.com/old-opened-autobiography-book.webp',
+    alt: 'An old opened autobiography book - LifeScript',
+    className: styles.bookImg,
+    width: 870,
+    height: 380,
+  },
+];
 
 const Introduction = () => {
   const { t } = useTranslation();
-  const color = { color: "#E1683B" }
+  const [Typed, setTyped] = useState(null);
 
   useEffect(() => {
-    const element = document.querySelector(".multiple-text");
-    if (element) {
-      const typed = new Typed(element, {
-        // strings: ["Create", "Gift"],
-        strings: [t("landingPage.hero.animationText1"),
-        t("landingPage.hero.animationText2")],
-        typeSpeed: 100,
-        backSpeed: 100,
-        delaySpeed: 100,
-        loop: true,
-        showCursor: false,
-      });
+    let typedInstance;
+    const loadTyped = async () => {
+      if (!Typed) {
+        const { default: TypedLib } = await import("typed.js");
+        setTyped(() => TypedLib);
+      }
+    };
 
-      return () => {
-        typed.destroy();
-      };
+    loadTyped();
+
+    if (Typed) {
+      const element = document.querySelector(".multiple-text");
+      if (element) {
+        typedInstance = new Typed(element, {
+          strings: [t("landingPage.hero.animationText1"), t("landingPage.hero.animationText2")],
+          typeSpeed: 100, 
+          backSpeed: 100, 
+          delaySpeed: 100,
+          loop: true,
+          showCursor: false,
+        });
+      }
     }
-  }, [t]);
+
+    return () => {
+      if (typedInstance) {
+        typedInstance.destroy();
+      }
+    };
+  }, [Typed, t]);
+
+  const color = { color: "#E1683B" }
 
   return (
     <Box sx={{ padding: { md: "90px 0 0 75px", sm: "100px 0 0 50px", xs: "40px 16px 40px" }, position: "relative" }}>
@@ -93,51 +135,18 @@ const Introduction = () => {
         </Typography>
       </Box>
 
-      <Image
-        loading="lazy"
-        src={Image1}
-        alt="Mom with dad and their two daughters having fun on the beach with stories about their lifes - LifeScript"
-        title="A happy family on the beach"
-        className={styles.image1}
-        width={260}
-        height={290}
-      />
-      <Image
-        loading="lazy"
-        src={Image3}
-        alt="Children dancing and having fun with bubbles on a vintage photograph - LifeScript"
-        title="Kids dancing and having fun with bubbles"
-        className={styles.image3}
-        width={275}
-        height={330}
-      />
-      <Image
-        loading="lazy"
-        src={Image2}
-        alt="childhood memories with a vintage photograph of a kid having a laugh with a small kitten - LifeScript"
-        title="A happy kid and a cat in a vintage photograph"
-        className={styles.image2}
-        width={225}
-        height={245}
-      />
-      <Image
-        loading="lazy"
-        src={Image4}
-        alt="Grandma and Grandpa eating ice cream and having fun reflecting on their life journey - LifeScript"
-        title="An old couple laughing and eating ice-cream"
-        className={styles.image4}
-        width={322}
-        height={290}
-      />
-      <Image
-        loading="lazy"
-        src={Book}
-        alt="An old opened autobiography book - LifeScript"
-        title="An old autobiography book"
-        className={styles.bookImg}
-        width={870}
-        height={380}
-      />
+      {images.map((image, index) => (
+        <Image
+          key={index}
+          loading='lazy'
+          src={image.src}
+          alt={image.alt}
+          title={image.alt}
+          className={image.className}
+          width={image.width}
+          height={image.height}
+        />
+      ))}
     </Box>
   )
 }

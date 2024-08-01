@@ -1,4 +1,4 @@
-import Content from "@/__webComponents/headings/Content";
+
 import { Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +7,11 @@ import styles from "./HomeSections.module.css";
 import Bg from "@/__webAssets/pngs/bg-story-telling.png";
 import Line from "@/__webAssets/svgs/line-orange.svg";
 import NextIcon from "@/__webAssets/svgs/next.svg";
-import Button from "@/__webComponents/button/Button";
-import { useTranslation } from "react-i18next";
 
+import { useTranslation } from "react-i18next";
+import dynamic from "next/dynamic";
+const Content = dynamic(() => import('@/__webComponents/headings/Content'));
+const Button = dynamic(() => import('@/__webComponents/button/Button'));
 const StoryImage1 =
   "https://lifescript-media.s3.eu-north-1.amazonaws.com/happy-grandma-holding-her-granddaughter.webp";
 const StoryImage2 =
@@ -104,7 +106,7 @@ const StoryTelling = () => {
           />
         ))}
       </Box>
-      <Image src={Bg} alt="bg" className={styles.storyBg} />
+      <Image src={Bg} alt="bg" className={styles.storyBg} priority/>
     </Box>
   );
 };
@@ -182,6 +184,7 @@ function StoryWraper({
         className={`${styles.stroyImages} ${cardNo == "1" && styles.index}`}
         height={300}
         width={475}
+      
       />
     </Box>
   );

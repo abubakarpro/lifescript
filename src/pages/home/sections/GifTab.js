@@ -3,10 +3,11 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import styles from "./HomeSections.module.css"
-import Button from "@/__webComponents/button/Button";
 import Hurt from "@/__webAssets/pngs/bg-gift-tag.png"
 import Link from "next/link";
 import Bandage from "@/__webAssets/pngs/bandage.png"
+import dynamic from "next/dynamic";
+const Button = dynamic(() => import('@/__webComponents/button/Button'), { ssr: false });
 
 const GifTab = ({ heading, subHeading, icon, button }) => {
 
