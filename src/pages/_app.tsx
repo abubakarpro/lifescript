@@ -60,70 +60,65 @@ export default function App({ Component, pageProps }: AppProps) {
     const slug = queryParams.get("slug");
     if (window.location.search.includes("?via=install")) {
       setLoading(false);
-      return; 
+      return;
     }
-  //   if (currentPath && currentPath.startsWith("/verify")) {
-  //     const token = queryParams.get("token");
-  //     if (token) {
-  //       setLoading(false);
-  //       return;
-  //     }
-  //   }
-
-  //   if (publicRoutes.some((route) => route === currentPath || route.startsWith('/blog'))) {
-  //     setLoading(false);
-  //     if (!userLoggedIn) {
-  //       // Redirect to the current path, passing id if available
-  //       setLoading(false);
-  //       if (currentPath) {
-  //         id ? router.push(`${currentPath}?id=${id}`) : router.push(currentPath);
-  //       }
-  //     } else {
-  //       if (currentPath === "/stripe-page/gift-subscription") {
-  //         setLoading(false);
-  //       } else if (currentPath?.startsWith('/blog/')) {
-  //         // Do nothing, stay on the current blog page
-  //         setLoading(false);
-  //       } else {
-  //         router.push("/dashboard/chapters");
-  //         setLoading(false);
-  //       }
-  //     }
-  //   }
-  //   else if (currentPath == "/" && userLoggedIn) {
-  //     router.push("/dashboard/chapters");
-  //   } else {
-  //     if (!userLoggedIn) {
-  //       router.push("/");
-  //     }
-  //     setLoading(false);
-  //   }
-  // }, [currentPath]);
-  //previous with slug and blog-details
-    if (currentPath.startsWith("/verify")) {
+    if (currentPath && currentPath.startsWith("/verify")) {
       const token = queryParams.get("token");
       if (token) {
         setLoading(false);
         return;
       }
     }
-    if (publicRoutes.some((route) => route.includes(currentPath))) {
-      if (!userLoggedIn)
-        id ? router.push(`${currentPath}?id=${id}`) : slug ? router.push(`${currentPath}?slug=${slug}`) : router.push(currentPath);
-      else if (currentPath === "/stripe-page/gift-subscription") {
-        setLoading(false);
-      } else router.push("/dashboard/chapters");
-      setLoading(false);
-    } else if (currentPath == "/" && userLoggedIn) {
+    if (!currentPath) return;
+    setLoading(false);
+    // If the user is logged in and tries to access /blog or any subpath of it, redirect to /dashboard/chapters
+    if (
+      userLoggedIn &&
+      (currentPath === "/blog" || currentPath.startsWith("/blog/"))
+    ) {
       router.push("/dashboard/chapters");
-    } else {
-      if (!userLoggedIn) {
-        router.push("/");
+      setLoading(false);
+    } else if (!userLoggedIn) {
+      // Redirect to the current path, passing id if available
+      setLoading(false);
+      if (currentPath) {
+        id ? router.push(`${currentPath}?id=${id}`) : router.push(currentPath);
       }
+    } else if (userLoggedIn && currentPath === "/") {
+      // Redirect the logged-in user from home page to dashboard/chapters
+      router.push("/dashboard/chapters");
+      setLoading(false);
+    } else if (!userLoggedIn) {
+      // If the user is not logged in and tries to access any path, redirect to home page
+      router.push("/");
+      setLoading(false);
+    } else {
       setLoading(false);
     }
-
-    }, [currentPath]);
+    //previous with slug and blog-details
+    // if (currentPath.startsWith("/verify")) {
+    //   const token = queryParams.get("token");
+    //   if (token) {
+    //     setLoading(false);
+    //     return;
+    //   }
+    // }
+    // if (publicRoutes.some((route) => route.includes(currentPath))) {
+    //   if (!userLoggedIn)
+    //     id ? router.push(`${currentPath}?id=${id}`) : slug ? router.push(`${currentPath}?slug=${slug}`) : router.push(currentPath);
+    //   else if (currentPath === "/stripe-page/gift-subscription") {
+    //     setLoading(false);
+    //   } else router.push("/dashboard/chapters");
+    //   setLoading(false);
+    // } else if (currentPath == "/" && userLoggedIn) {
+    //   router.push("/dashboard/chapters");
+    // } else {
+    //   if (!userLoggedIn) {
+    //     router.push("/");
+    //   }
+    //   setLoading(false);
+    // }
+  }, [currentPath]);
 
   const [showCookieBar, setShowCookieBar] = useState(true);
 
@@ -132,7 +127,6 @@ export default function App({ Component, pageProps }: AppProps) {
     Cookies.remove(testCookieName);
 
     Cookies.set(testCookieName, 500);
-
   }, []);
 
   const theme = useTheme();
@@ -141,7 +135,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <StoreProvider store={store}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-
         <Grid container justifyContent="center">
           {showCookieBar && (
             <CookieConsent
@@ -149,8 +142,7 @@ export default function App({ Component, pageProps }: AppProps) {
               declineButtonText="Decline"
               buttonText="Accept"
               flipButtons
-              onDecline={() => {
-              }}
+              onDecline={() => {}}
               setDeclineCookie={false}
               style={{
                 background: "#2A3724",
@@ -182,7 +174,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 width: isMobile ? "100px" : isTablet ? "100px" : "150px",
               }}
             >
-
               <div
                 style={{
                   display: "flex",
